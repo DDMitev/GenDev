@@ -2,78 +2,78 @@
 
 export default function ContactInfo() {
   return (
-    <div className="rounded-xl bg-indigo-900/20 backdrop-blur-sm p-6 shadow-xl ring-1 ring-indigo-800/30">
-      <h2 className="mb-4 text-xl font-bold text-fuchsia-200">Contact Information</h2>
+    <div className="rounded-lg bg-midnight-800/50 backdrop-blur-sm p-5 md:p-6 shadow-xl ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30 transition-all">
+      <h2 className="mb-4 text-xl font-bold text-white">Contact Information</h2>
       
       <div className="space-y-4">
         <div className="flex items-start">
-          <div className="mr-3 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 text-fuchsia-200">
+          <div className="mr-3 inline-flex h-9 w-9 md:h-10 md:w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-medium text-fuchsia-200">Email</h3>
-            <a href="mailto:contact@gendev.tech" className="text-indigo-100 hover:text-fuchsia-200 transition-colors">
+            <h3 className="text-base md:text-lg font-medium text-white">Email</h3>
+            <a href="mailto:contact@gendev.tech" className="text-gray-300 hover:text-cyber-yellow-500 transition-colors">
               contact@gendev.tech
             </a>
           </div>
         </div>
         
         <div className="flex items-start">
-          <div className="mr-3 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 text-fuchsia-200">
+          <div className="mr-3 inline-flex h-9 w-9 md:h-10 md:w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-medium text-fuchsia-200">Location</h3>
-            <p className="text-indigo-100">
-              Sofia, Bulgaria <span className="text-indigo-100/60">(Remote work available worldwide)</span>
+            <h3 className="text-base md:text-lg font-medium text-white">Location</h3>
+            <p className="text-gray-300">
+              Sofia, Bulgaria <span className="text-gray-400">(Remote work available worldwide)</span>
             </p>
           </div>
         </div>
         
         <div className="flex items-start">
-          <div className="mr-3 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 text-fuchsia-200">
+          <div className="mr-3 inline-flex h-9 w-9 md:h-10 md:w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-medium text-fuchsia-200">Availability</h3>
-            <p className="text-indigo-100">
+            <h3 className="text-base md:text-lg font-medium text-white">Availability</h3>
+            <p className="text-gray-300">
               Mon-Fri, 9:00 - 18:00 EEST (UTC+3)<br />
-              <span className="text-indigo-100/60">Response within 24 hours</span>
+              <span className="text-gray-400">Response within 24 hours</span>
             </p>
           </div>
         </div>
 
         <div className="flex items-start">
-          <div className="mr-3 inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 text-fuchsia-200">
+          <div className="mr-3 inline-flex h-9 w-9 md:h-10 md:w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="h-5 w-5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
             </svg>
           </div>
           <div>
-            <h3 className="text-lg font-medium text-fuchsia-200">Phone</h3>
-            <a href="tel:+359888123456" className="text-indigo-100 hover:text-fuchsia-200 transition-colors">
+            <h3 className="text-base md:text-lg font-medium text-white">Phone</h3>
+            <a href="tel:+359888123456" className="text-gray-300 hover:text-cyber-yellow-500 transition-colors">
               +359 88 812 3456
             </a>
-            <p className="text-xs text-indigo-100/60 mt-1">For urgent inquiries only</p>
+            <p className="text-xs text-gray-400 mt-1">For urgent inquiries only</p>
           </div>
         </div>
       </div>
       
-      <div className="mt-8">
-        <h3 className="mb-3 text-lg font-medium text-fuchsia-200">Connect</h3>
+      <div className="mt-6 md:mt-8">
+        <h3 className="mb-3 text-base md:text-lg font-medium text-white">Connect</h3>
         <div className="flex space-x-4">
           <a 
             href="https://github.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-600/20 to-violet-600/20 text-fuchsia-200 transition-all hover:from-fuchsia-600/30 hover:to-violet-600/30 hover:text-white"
+            className="inline-flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full bg-midnight-700 text-gray-300 transition-all hover:bg-cyber-yellow-500 hover:text-black"
             aria-label="GitHub"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -85,7 +85,7 @@ export default function ContactInfo() {
             href="https://linkedin.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-600/20 to-violet-600/20 text-fuchsia-200 transition-all hover:from-fuchsia-600/30 hover:to-violet-600/30 hover:text-white"
+            className="inline-flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full bg-midnight-700 text-gray-300 transition-all hover:bg-cyber-yellow-500 hover:text-black"
             aria-label="LinkedIn"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -97,7 +97,7 @@ export default function ContactInfo() {
             href="https://twitter.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-fuchsia-600/20 to-violet-600/20 text-fuchsia-200 transition-all hover:from-fuchsia-600/30 hover:to-violet-600/30 hover:text-white"
+            className="inline-flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full bg-midnight-700 text-gray-300 transition-all hover:bg-cyber-yellow-500 hover:text-black"
             aria-label="Twitter"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -23,7 +23,7 @@ export default function ServicesPage() {
     {
       id: 'web',
       title: 'Web Application Development',
-      icon: <Code2 className="h-6 w-6" />,
+      icon: <Code2 className="h-6 w-6 text-cyber-yellow-500" />,
       description: 'Custom web solutions built with modern, performant technologies to deliver exceptional digital experiences.',
       details: [
         'New application development from the ground up',
@@ -40,7 +40,7 @@ export default function ServicesPage() {
     {
       id: 'data',
       title: 'Data Management & Automation',
-      icon: <Database className="h-6 w-6" />,
+      icon: <Database className="h-6 w-6 text-cyber-yellow-500" />,
       description: 'Transform raw data into actionable information and streamline operations with automated workflows.',
       details: [
         'ETL pipeline development (Extract, Transform, Load)',
@@ -57,7 +57,7 @@ export default function ServicesPage() {
     {
       id: 'api',
       title: 'Custom API & Integration',
-      icon: <Share2 className="h-6 w-6" />,
+      icon: <Share2 className="h-6 w-6 text-cyber-yellow-500" />,
       description: 'Connect disparate systems and automate data flow between applications for seamless operations.',
       details: [
         'API integration & data syncing between platforms',
@@ -74,7 +74,7 @@ export default function ServicesPage() {
     {
       id: 'consulting',
       title: 'Technical Consulting',
-      icon: <Search className="h-6 w-6" />,
+      icon: <Search className="h-6 w-6 text-cyber-yellow-500" />,
       description: 'Expert guidance on technology decisions, architecture, and implementation strategies.',
       details: [
         'Technology stack selection and architectural planning',
@@ -122,12 +122,12 @@ export default function ServicesPage() {
   const activeServiceData = services.find(s => s.id === activeService)!;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Hero Section */}
       <ScrollReveal>
         <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold">Our Services</h1>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-indigo-100">
+          <h1 className="mb-4 text-3xl md:text-4xl font-bold text-white">Our Services</h1>
+          <p className="mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
             We offer specialized web development and data management services to help businesses improve their digital presence and streamline operations.
           </p>
         </div>
@@ -135,42 +135,42 @@ export default function ServicesPage() {
 
       {/* Services Tabs Section */}
       <ScrollReveal>
-        <section className="mb-16 overflow-hidden rounded-xl border border-indigo-800/30 bg-indigo-900/10 backdrop-blur-sm shadow-lg shadow-indigo-900/10">
+        <section className="mb-16 overflow-hidden rounded-lg border border-midnight-600 bg-gradient-to-br from-midnight-800 to-black backdrop-blur-sm shadow-lg shadow-black/20">
           {/* Service Navigation Tabs */}
-          <div className="flex flex-wrap border-b border-indigo-800/30">
+          <div className="flex flex-wrap border-b border-midnight-600">
             {services.map(service => (
               <button
                 key={service.id}
                 onClick={() => setActiveService(service.id as ServiceCategory)}
-                className={`flex items-center gap-2 px-5 py-4 text-sm font-medium transition-colors md:px-6 ${
+                className={`flex items-center gap-2 px-4 py-3 md:px-5 md:py-4 text-sm font-medium transition-colors ${
                   activeService === service.id
-                    ? 'bg-indigo-900/50 text-fuchsia-200'
-                    : 'bg-transparent text-indigo-100/70 hover:bg-indigo-900/30 hover:text-fuchsia-100'
+                    ? 'bg-midnight-700 text-cyber-yellow-500'
+                    : 'bg-transparent text-gray-300 hover:bg-midnight-700/70 hover:text-cyber-yellow-400'
                 }`}
               >
-                <span className="hidden sm:inline-flex">{service.icon}</span>
+                <span className="hidden sm:inline-flex text-cyber-yellow-500">{service.icon}</span>
                 <span>{service.title}</span>
               </button>
             ))}
           </div>
           
           {/* Active Service Content */}
-          <div className="p-6 md:p-8">
+          <div className="p-4 md:p-6 lg:p-8">
             <div className="grid gap-8 lg:grid-cols-[1fr_1.5fr]">
               {/* Service Overview */}
               <div>
-                <div className="hidden md:flex h-16 w-16 items-center justify-center rounded-lg bg-gradient-to-br from-fuchsia-600/30 to-violet-600/30 text-fuchsia-200">
+                <div className="hidden md:flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-lg bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
                   {activeServiceData.icon}
                 </div>
-                <h2 className="mt-4 text-2xl font-bold text-fuchsia-200">{activeServiceData.title}</h2>
-                <p className="mt-2 text-indigo-100/80">{activeServiceData.description}</p>
-                <div className="mt-6 rounded-lg bg-indigo-900/30 p-4">
-                  <h3 className="mb-2 font-medium text-fuchsia-200">Pricing:</h3>
-                  <p className="text-indigo-100/80">{activeServiceData.pricing}</p>
+                <h2 className="mt-4 text-xl md:text-2xl font-bold text-white">{activeServiceData.title}</h2>
+                <p className="mt-2 text-gray-300">{activeServiceData.description}</p>
+                <div className="mt-6 rounded-lg bg-midnight-700/60 p-4">
+                  <h3 className="mb-2 font-medium text-white">Pricing:</h3>
+                  <p className="text-gray-300">{activeServiceData.pricing}</p>
                 </div>
                 <Link 
                   href="/contact"
-                  className="mt-6 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-fuchsia-600 to-violet-600 px-5 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-300 hover:shadow-fuchsia-600/20 hover:translate-y-[-2px]"
+                  className="mt-6 inline-flex items-center gap-2 rounded-md bg-cyber-yellow-500 px-5 py-2.5 text-sm font-medium text-black shadow-md transition-all duration-300 hover:bg-cyber-yellow-400 hover:shadow-cyber-yellow-500/20 hover:translate-y-[-2px]"
                 >
                   {activeServiceData.cta}
                   <ArrowRight className="h-4 w-4" />
@@ -180,30 +180,27 @@ export default function ServicesPage() {
               {/* Service Details */}
               <div className="space-y-6">
                 <div>
-                  <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-fuchsia-200">
-                    <CheckCircle2 className="h-5 w-5 text-fuchsia-400" />
+                  <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-white">
+                    <CheckCircle2 className="h-5 w-5 text-cyber-yellow-500" />
                     What We Offer
                   </h3>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {activeServiceData.details.map((detail, i) => (
-                      <div key={i} className="flex items-start rounded-md bg-indigo-900/20 p-3">
-                        <span className="text-indigo-100/90">{detail}</span>
+                      <div key={i} className="flex items-start rounded-md bg-midnight-700/40 p-3">
+                        <span className="text-gray-300">{detail}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 
                 <div>
-                  <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-fuchsia-200">
-                    <Code2 className="h-5 w-5 text-fuchsia-400" />
+                  <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-white">
+                    <Code2 className="h-5 w-5 text-cyber-yellow-500" />
                     Technologies & Tools
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {activeServiceData.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="inline-flex items-center rounded-full bg-violet-500/20 px-3 py-1 text-sm font-medium text-violet-200"
-                      >
+                    {activeServiceData.technologies.map((tech, i) => (
+                      <span key={i} className="inline-flex items-center rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400">
                         {tech}
                       </span>
                     ))}
@@ -215,52 +212,47 @@ export default function ServicesPage() {
         </section>
       </ScrollReveal>
 
-      {/* Process Section - Compact Version */}
-      <section className="mb-16">
-        <ScrollReveal>
-          <h2 className="mb-6 text-center text-2xl font-bold text-fuchsia-200">Our Process</h2>
-          
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {processSteps.map((step, index) => (
-              <div 
-                key={step.number} 
-                className="relative overflow-hidden rounded-lg border border-indigo-800/30 bg-indigo-900/20 p-5 backdrop-blur-sm transition-all hover:bg-indigo-900/30"
-              >
-                <div className="mb-3 flex items-center">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-600 text-sm font-bold text-white">
-                    {step.number}
-                  </div>
-                  <div className="ml-3">
-                    <h3 className="text-lg font-semibold text-fuchsia-200">{step.title}</h3>
-                  </div>
+      {/* Process Section */}
+      <ScrollReveal>
+        <section className="mb-16 overflow-hidden rounded-lg border border-midnight-600 bg-gradient-to-br from-midnight-800 to-black backdrop-blur-sm shadow-lg p-6 md:p-8">
+          <h2 className="mb-8 text-center text-2xl md:text-3xl font-bold text-white">Our Process</h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+            {processSteps.map((step, i) => (
+              <div key={i} className="relative">
+                {/* Number */}
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-cyber-yellow-500/10 text-xl font-bold text-cyber-yellow-500">
+                  {step.number}
                 </div>
-                <p className="text-sm text-indigo-100/80">{step.description}</p>
                 
-                {/* Connector arrow for desktop */}
-                {index < processSteps.length - 1 && (
-                  <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 text-indigo-600/60 lg:block">
-                    <ChevronRight className="h-8 w-8" />
-                  </div>
+                {/* Content */}
+                <div>
+                  <h3 className="mb-2 text-lg font-semibold text-white">{step.title}</h3>
+                  <p className="text-sm text-gray-300">{step.description}</p>
+                </div>
+                
+                {/* Connector Line - Hide on mobile and last item */}
+                {i < processSteps.length - 1 && (
+                  <div className="hidden lg:block absolute top-6 left-16 h-0.5 w-full bg-gradient-to-r from-cyber-yellow-500/20 to-transparent"></div>
                 )}
               </div>
             ))}
           </div>
-        </ScrollReveal>
-      </section>
+        </section>
+      </ScrollReveal>
 
       {/* CTA Section */}
-      <ScrollReveal direction="up">
-        <section className="overflow-hidden rounded-xl bg-gradient-to-r from-fuchsia-900/30 to-violet-900/30 p-8 text-center backdrop-blur-sm">
-          <h2 className="mb-4 text-2xl font-bold text-white md:text-3xl">Ready to start your project?</h2>
-          <p className="mx-auto mb-6 max-w-2xl text-lg text-indigo-100">
-            Let's discuss how our partnership can help your business achieve its goals with tailored technical solutions.
+      <ScrollReveal>
+        <section className="rounded-lg border border-midnight-600 bg-gradient-to-br from-midnight-800 to-black p-6 md:p-8 text-center">
+          <h2 className="mb-4 text-2xl font-bold text-white">Ready to Get Started?</h2>
+          <p className="mb-6 mx-auto max-w-2xl text-base md:text-lg text-gray-300">
+            Contact us today for a free consultation about your project needs. Let's create something amazing together.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fuchsia-600 to-violet-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:shadow-fuchsia-600/20 hover:translate-y-[-2px] focus:outline-none"
+            className="inline-flex items-center rounded-md bg-cyber-yellow-500 px-6 py-3 text-base font-medium text-black shadow-xl transition-all duration-300 hover:bg-cyber-yellow-400 hover:shadow-cyber-yellow-500/20 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/20"
           >
-            Get in Touch
-            <ArrowRight className="ml-2 h-5 w-5" />
+            Contact Us
+            <ChevronRight className="ml-2 h-5 w-5" />
           </Link>
         </section>
       </ScrollReveal>

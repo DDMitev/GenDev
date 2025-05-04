@@ -60,10 +60,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full space-y-6">
-      <div className="grid gap-6 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} className="w-full space-y-5 md:space-y-6">
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-2 block text-sm font-medium text-indigo-100">
+          <label htmlFor="name" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
             Your Name
           </label>
           <input
@@ -73,12 +73,12 @@ export default function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-indigo-800/50 bg-indigo-900/30 p-3 text-indigo-100 backdrop-blur-sm focus:border-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/30"
+            className="w-full rounded-lg border border-midnight-600 bg-midnight-800/50 p-2.5 md:p-3 text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyber-yellow-500 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30"
             placeholder="John Doe"
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-sm font-medium text-indigo-100">
+          <label htmlFor="email" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
             Your Email
           </label>
           <input
@@ -88,14 +88,14 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-indigo-800/50 bg-indigo-900/30 p-3 text-indigo-100 backdrop-blur-sm focus:border-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/30"
+            className="w-full rounded-lg border border-midnight-600 bg-midnight-800/50 p-2.5 md:p-3 text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyber-yellow-500 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30"
             placeholder="john@example.com"
           />
         </div>
       </div>
       
       <div>
-        <label htmlFor="subject" className="mb-2 block text-sm font-medium text-indigo-100">
+        <label htmlFor="subject" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
           Subject
         </label>
         <input
@@ -105,13 +105,13 @@ export default function ContactForm() {
           value={formData.subject}
           onChange={handleChange}
           required
-          className="w-full rounded-lg border border-indigo-800/50 bg-indigo-900/30 p-3 text-indigo-100 backdrop-blur-sm focus:border-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/30"
+          className="w-full rounded-lg border border-midnight-600 bg-midnight-800/50 p-2.5 md:p-3 text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyber-yellow-500 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30"
           placeholder="Project inquiry"
         />
       </div>
       
       <div>
-        <label htmlFor="message" className="mb-2 block text-sm font-medium text-indigo-100">
+        <label htmlFor="message" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
           Message
         </label>
         <textarea
@@ -121,16 +121,16 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           rows={6}
-          className="w-full rounded-lg border border-indigo-800/50 bg-indigo-900/30 p-3 text-indigo-100 backdrop-blur-sm focus:border-fuchsia-500 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/30"
+          className="w-full rounded-lg border border-midnight-600 bg-midnight-800/50 p-2.5 md:p-3 text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyber-yellow-500 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30"
           placeholder="Tell me about your project or inquiry..."
         ></textarea>
       </div>
       
       {submitStatus.type && (
-        <div className={`rounded-lg p-4 ${
+        <div className={`rounded-lg p-3 md:p-4 ${
           submitStatus.type === 'success' 
-            ? 'bg-green-900/30 text-green-200 border border-green-800/50' 
-            : 'bg-red-900/30 text-red-200 border border-red-800/50'
+            ? 'bg-black/60 text-cyber-yellow-400 border border-cyber-yellow-500/30' 
+            : 'bg-black/60 text-cyber-yellow-400 border border-cyber-yellow-500/30'
         }`}>
           {submitStatus.message}
         </div>
@@ -139,7 +139,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-fuchsia-600 to-violet-600 px-6 py-3 text-base font-medium text-white shadow-lg transition-all duration-300 hover:shadow-fuchsia-600/20 hover:translate-y-[-2px] focus:outline-none disabled:opacity-70 disabled:cursor-not-allowed"
+        className="inline-flex items-center justify-center rounded-md bg-cyber-yellow-500 px-5 py-2.5 md:px-6 md:py-3 text-base font-medium text-black shadow-lg transition-all duration-300 hover:bg-cyber-yellow-400 hover:shadow-cyber-yellow-500/20 hover:translate-y-[-2px] focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30 focus:ring-offset-2 focus:ring-offset-midnight-900 disabled:opacity-70 disabled:cursor-not-allowed"
       >
         {isSubmitting ? (
           <>
