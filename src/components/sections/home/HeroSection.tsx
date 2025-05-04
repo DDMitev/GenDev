@@ -6,48 +6,62 @@ import ScrollReveal from '@/components/ui/ScrollReveal';
 
 export default function HeroSection() {
   return (
-    <section className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-      <div className="absolute inset-x-0 -top-40 -z-10 overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-        <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-cobalt to-amber opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+    <section className="relative overflow-hidden bg-gradient-to-b from-midnight-800 to-black py-12 md:py-20">
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10 animate-pulse-slow">
+        <div className="absolute right-0 top-0 h-96 w-96 -translate-y-1/2 translate-x-1/4 rounded-full bg-cyber-yellow-500/10 blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 h-96 w-96 translate-y-1/2 -translate-x-1/4 rounded-full bg-cyber-yellow-500/10 blur-3xl"></div>
       </div>
-      
+
       <div className="mx-auto max-w-4xl text-center">
         <ScrollReveal>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-            <span className="block">
-              <span className="inline-block bg-gradient-to-r from-cobalt to-amber bg-clip-text pb-1 text-transparent">GenDev</span>: Where Web
-              <span className="inline-block bg-gradient-to-r from-cobalt to-amber bg-clip-text pl-2 pb-1 text-transparent"> & Data </span>
-              Connect
+          <h1 className="text-center text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            <span className="block">Transform Your Digital Presence with</span>
+            <span className="mt-1 block bg-gradient-to-r from-cyber-yellow-400 to-cyber-yellow-600 bg-clip-text text-transparent">
+              GenDev
             </span>
           </h1>
           
-          <p className="mt-6 text-lg leading-8 text-slate-200">
-            We build custom web applications and data solutions that help businesses modernize their digital presence and streamline operations.
-            <span className="hidden sm:inline"> Our technical & business-focused partnership delivers both exceptional code and measurable results.</span>
+          <p className="mt-6 max-w-2xl text-center text-lg text-gray-300">
+            We're a specialized partnership delivering modern web development and data management 
+            solutions to help businesses improve their digital presence and operational efficiency.
           </p>
           
-          <div className="mt-10 flex flex-col items-center justify-center gap-6 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
             <Link 
-              href="/portfolio" 
-              className="group flex items-center gap-2 rounded-md bg-gradient-to-r from-cobalt to-cobalt-light px-6 py-3 text-sm font-medium text-white shadow-lg transition-all duration-300 hover:shadow-cobalt/20 hover:translate-y-[-2px]"
+              href="/contact" 
+              className="inline-flex items-center justify-center rounded-md bg-cyber-yellow-500 px-6 py-3 text-base font-medium text-black shadow-lg hover:bg-cyber-yellow-400 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-600 focus:ring-offset-2 focus:ring-offset-gray-900"
             >
-              View Our Work
+              Get Started
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             
             <Link
-              href="/contact"
-              className="flex items-center gap-2 rounded-md border border-amber/30 bg-slate-700/30 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-slate-700/50 hover:border-amber/50"
+              href="/portfolio"
+              className="inline-flex items-center justify-center rounded-md border border-cyber-yellow-500/30 bg-midnight-700/50 px-6 py-3 text-base font-medium text-cyber-yellow-500 hover:bg-midnight-700 hover:text-cyber-yellow-400 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/50 focus:ring-offset-2 focus:ring-offset-gray-900"
             >
-              Get in Touch
+              View Our Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
+
+          {/* Featured image */}
+          <div className="mt-12 w-full rounded-lg border border-midnight-700 bg-midnight-800/50 p-3 shadow-2xl">
+            <div className="aspect-[16/9] w-full overflow-hidden rounded bg-midnight-700">
+              <div className="grid h-full place-items-center bg-gradient-to-br from-black to-midnight-700">
+                <div className="flex items-center space-x-2 text-xl font-semibold">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-cyber-yellow-500 text-black text-2xl font-bold">
+                    G
+                  </div>
+                  <span className="bg-gradient-to-r from-cyber-yellow-400 to-cyber-yellow-600 bg-clip-text text-transparent">
+                    GenDev Project Display
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </ScrollReveal>
       </div>
-      
-      <div className="absolute left-1/2 top-1/4 -z-10 h-24 w-24 -translate-x-1/2 rounded-full bg-gradient-to-br from-cobalt/40 to-transparent blur-2xl"></div>
-      <div className="absolute right-1/4 top-1/2 -z-10 h-32 w-32 rounded-full bg-gradient-to-br from-amber/30 to-transparent blur-3xl"></div>
     </section>
   );
 }

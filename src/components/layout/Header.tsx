@@ -17,31 +17,33 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-500/30 bg-gradient-to-r from-slate-800/95 to-slate-700/95 backdrop-blur-md backdrop-filter shadow-md transition-all duration-300">
+    <header className="sticky top-0 z-40 bg-gradient-to-b from-black/90 to-midnight-700/70 backdrop-blur-sm">
       <Container>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <span className="flex items-center justify-center h-9 w-9 rounded-lg bg-gradient-to-r from-cobalt to-cobalt-light text-white text-xl font-bold transition-transform duration-300 group-hover:scale-110">G</span>
-            <span className="hidden text-lg font-medium bg-gradient-to-r from-cobalt to-amber bg-clip-text text-transparent md:inline-block">GenDev</span>
+          <Link href="/" className="flex items-center">
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-r from-cyber-yellow-500 to-cyber-yellow-600 text-black font-bold">
+              G
+            </div>
+            <span className="ml-2 text-xl font-semibold text-white">GenDev</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop navigation */}
           <nav className="hidden md:flex md:items-center md:space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-100 transition-all duration-300 hover:text-amber relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-amber after:transition-all after:duration-300 hover:after:w-full"
+                className="text-sm font-medium text-white transition-all duration-300 hover:text-cyber-yellow-500 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-cyber-yellow-500 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile menu button */}
           <button
-            className="flex h-10 w-10 items-center justify-center md:hidden transition-colors text-slate-100 hover:text-amber"
+            className="flex h-10 w-10 items-center justify-center md:hidden transition-colors text-white hover:text-cyber-yellow-500"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -71,23 +73,33 @@ export default function Header() {
         </div>
       </Container>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden transition-all duration-300 animate-fadeIn bg-gradient-to-b from-slate-800/95 to-slate-700/95 backdrop-blur-md">
-          <Container>
-            <div className="flex flex-col space-y-4 py-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-slate-100 transition-colors hover:text-amber"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </Container>
+        <div className="md:hidden animate-fadeIn">
+          <div className="bg-gradient-to-b from-midnight-800 to-midnight-900 px-2 pt-2 pb-3">
+            <Container>
+              <div className="space-y-1 py-2">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block px-3 py-2 text-white hover:bg-midnight-700 hover:text-cyber-yellow-500 rounded-md"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="mt-4 border-t border-midnight-600 pt-4 pb-3">
+                <div className="flex items-center px-3">
+                  <button className="flex-shrink-0 rounded-md bg-cyber-yellow-500 px-3 py-2 text-black font-medium shadow-sm hover:bg-cyber-yellow-400 focus:outline-none">
+                    Get Started
+                  </button>
+                </div>
+              </div>
+            </Container>
+          </div>
         </div>
       )}
     </header>
