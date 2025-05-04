@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White arrow with shadow -->
+  <path d="M7 4L7 20L10 17L13 22L16 20L13 15L16 15L7 4Z" fill="white" stroke="white" stroke-width="1"/>
+  
+  <!-- Black outline -->
+  <path d="M7 4L7 20L10 17L13 22L16 20L13 15L16 15L7 4Z" fill="none" stroke="black" stroke-width="1"/>
+  
+  <!-- Very subtle brand accent -->
+  <path d="M7 4L7.5 7L8 6L7 4Z" fill="#6366f1" stroke="none"/>
+</svg>
