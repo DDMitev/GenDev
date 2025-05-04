@@ -33,12 +33,12 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Hero Section */}
       <ScrollReveal>
-        <div className="mb-16 text-center">
-          <h1 className="mb-6 text-4xl font-bold">Get in Touch</h1>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-indigo-100">
+        <div className="mb-12 md:mb-16 text-center">
+          <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl font-bold text-white">Get in Touch</h1>
+          <p className="mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
             Have a project in mind or questions about our services? We'd love to hear from you. 
             Our team is ready to discuss how we can help bring your vision to life.
           </p>
@@ -46,8 +46,8 @@ export default function ContactPage() {
       </ScrollReveal>
 
       {/* Contact Section */}
-      <section className="mb-20">
-        <div className="grid gap-12 md:grid-cols-2">
+      <section className="mb-16 md:mb-20">
+        <div className="grid gap-8 md:gap-12 md:grid-cols-2">
           <ScrollReveal direction="left">
             <ContactForm />
           </ScrollReveal>
@@ -62,17 +62,17 @@ export default function ContactPage() {
       <section>
         <ScrollReveal>
           <div className="mb-8 text-center">
-            <h2 className="text-3xl font-bold text-fuchsia-200">Frequently Asked Questions</h2>
-            <p className="mt-4 text-indigo-100/80">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Frequently Asked Questions</h2>
+            <p className="mt-4 text-base md:text-lg text-gray-300">
               Have some questions about working with us? Here are answers to some common queries.
             </p>
           </div>
           
           <div className="grid gap-6 md:grid-cols-2">
             {faqs.map((faq, index) => (
-              <div key={index} className="rounded-xl bg-indigo-900/20 p-6 backdrop-blur-sm">
-                <h3 className="mb-3 text-xl font-semibold text-fuchsia-200">{faq.question}</h3>
-                <p className="text-indigo-100/80">{faq.answer}</p>
+              <div key={index} className="rounded-lg bg-midnight-800/50 p-5 md:p-6 backdrop-blur-sm border border-midnight-600 hover:border-cyber-yellow-500/30 transition-colors">
+                <h3 className="mb-3 text-lg md:text-xl font-semibold text-white">{faq.question}</h3>
+                <p className="text-sm md:text-base text-gray-300">{faq.answer}</p>
               </div>
             ))}
           </div>
