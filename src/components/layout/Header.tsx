@@ -17,13 +17,13 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-fuchsia-800/30 bg-gradient-to-r from-fuchsia-950/95 via-violet-950/95 to-fuchsia-950/95 backdrop-blur-md backdrop-filter shadow-md transition-all duration-300">
+    <header className="sticky top-0 z-50 w-full border-b border-emerald-800/30 bg-gradient-to-r from-navy-950/95 via-emerald-950/95 to-navy-950/95 backdrop-blur-md backdrop-filter shadow-md transition-all duration-300">
       <Container>
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <span className="flex items-center justify-center h-9 w-9 rounded-lg bg-gradient-to-r from-fuchsia-600 to-violet-600 text-white text-xl font-bold transition-transform duration-300 group-hover:scale-110">G</span>
-            <span className="hidden text-lg font-medium bg-gradient-to-r from-fuchsia-200 to-violet-200 bg-clip-text text-transparent md:inline-block">GenDev</span>
+            <span className="flex items-center justify-center h-9 w-9 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xl font-bold transition-transform duration-300 group-hover:scale-110">G</span>
+            <span className="hidden text-lg font-medium bg-gradient-to-r from-emerald-200 to-teal-200 bg-clip-text text-transparent md:inline-block">GenDev</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -32,7 +32,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-fuchsia-100 transition-all duration-300 hover:text-fuchsia-200 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-fuchsia-400 after:transition-all after:duration-300 hover:after:w-full"
+                className="text-sm font-medium text-emerald-100 transition-all duration-300 hover:text-emerald-200 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-emerald-400 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {link.label}
               </Link>
@@ -41,7 +41,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="flex h-10 w-10 items-center justify-center md:hidden transition-colors text-fuchsia-100 hover:text-fuchsia-200"
+            className="flex h-10 w-10 items-center justify-center md:hidden transition-colors text-emerald-100 hover:text-emerald-200"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -73,14 +73,14 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden transition-all duration-300 animate-fadeIn bg-gradient-to-b from-fuchsia-950/95 to-violet-950/95 backdrop-blur-md">
+        <div className="md:hidden transition-all duration-300 animate-fadeIn bg-gradient-to-b from-navy-950/95 to-emerald-950/95 backdrop-blur-md">
           <Container>
             <div className="flex flex-col space-y-4 py-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-fuchsia-100 transition-colors hover:text-fuchsia-200"
+                  className="text-sm font-medium text-emerald-100 transition-colors hover:text-emerald-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
