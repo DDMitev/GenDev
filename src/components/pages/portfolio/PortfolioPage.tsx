@@ -91,12 +91,12 @@ export default function PortfolioPage() {
   const exampleProjects = projects.filter(project => project.isExample);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Hero Section */}
       <ScrollReveal>
-        <div className="mb-16 text-center">
-          <h1 className="mb-6 text-4xl font-bold">Our Portfolio</h1>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-indigo-100">
+        <div className="mb-12 md:mb-16 text-center">
+          <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl font-bold text-white">Our Portfolio</h1>
+          <p className="mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
             Explore our work and see how we've helped businesses improve their digital presence and operational efficiency. We take pride in delivering solutions that combine technical excellence with business value.
           </p>
         </div>
@@ -104,16 +104,16 @@ export default function PortfolioPage() {
 
       {/* Featured Project */}
       {featuredProjects.length > 0 && (
-        <section className="mb-20">
+        <section className="mb-16 md:mb-20">
           <ScrollReveal>
-            <h2 className="mb-6 text-2xl font-bold text-fuchsia-200">Featured Project</h2>
+            <h2 className="mb-6 text-xl md:text-2xl font-bold text-white">Featured Project</h2>
             {featuredProjects.map((project) => (
               <div
                 key={project.id}
-                className="overflow-hidden rounded-xl bg-gradient-to-br from-indigo-900/30 to-violet-900/30 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-fuchsia-900/10"
+                className="overflow-hidden rounded-lg bg-gradient-to-br from-midnight-800/60 to-midnight-900/60 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10 ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30"
               >
-                <div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-2 md:p-8">
-                  <div className="relative h-64 w-full overflow-hidden rounded-lg sm:h-80 md:h-96">
+                <div className="grid grid-cols-1 gap-6 p-5 md:p-6 lg:grid-cols-2 lg:p-8">
+                  <div className="relative h-60 w-full overflow-hidden rounded-lg sm:h-72 md:h-80 lg:h-96">
                     <Image
                       src={project.imageUrl}
                       alt={project.title}
@@ -123,45 +123,45 @@ export default function PortfolioPage() {
                   </div>
                   <div className="flex flex-col justify-between">
                     <div>
-                      <div className="mb-2 flex flex-wrap items-center gap-3">
-                        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                      <div className="mb-2 flex flex-wrap items-center gap-2 md:gap-3">
+                        <h3 className="text-xl md:text-2xl font-bold text-white">{project.title}</h3>
                         
                         {project.client && (
-                          <span className="rounded-full bg-indigo-900/50 px-3 py-1 text-xs font-medium text-indigo-200">
+                          <span className="rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400">
                             {project.client}
                           </span>
                         )}
                         
                         {project.year && (
-                          <span className="rounded-full bg-fuchsia-900/50 px-3 py-1 text-xs font-medium text-fuchsia-200">
+                          <span className="rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400">
                             {project.year}
                           </span>
                         )}
                       </div>
 
-                      <p className="mb-6 text-indigo-100/90">{project.description}</p>
+                      <p className="mb-5 md:mb-6 text-gray-300">{project.description}</p>
 
                       {project.challenge && (
                         <div className="mb-4">
-                          <h4 className="mb-1 font-semibold text-fuchsia-200">The Challenge:</h4>
-                          <p className="text-sm text-indigo-100/80">{project.challenge}</p>
+                          <h4 className="mb-1 font-semibold text-white">The Challenge:</h4>
+                          <p className="text-sm text-gray-300">{project.challenge}</p>
                         </div>
                       )}
 
                       {project.solution && (
-                        <div className="mb-6">
-                          <h4 className="mb-1 font-semibold text-fuchsia-200">Our Solution:</h4>
-                          <p className="text-sm text-indigo-100/80">{project.solution}</p>
+                        <div className="mb-5 md:mb-6">
+                          <h4 className="mb-1 font-semibold text-white">Our Solution:</h4>
+                          <p className="text-sm text-gray-300">{project.solution}</p>
                         </div>
                       )}
 
-                      <div className="mb-6">
-                        <h4 className="mb-2 font-semibold text-fuchsia-200">Technologies Used:</h4>
+                      <div className="mb-5 md:mb-6">
+                        <h4 className="mb-2 font-semibold text-white">Technologies Used:</h4>
                         <div className="flex flex-wrap gap-2">
                           {project.technologies.map((tech) => (
                             <span
                               key={tech}
-                              className="rounded-md bg-indigo-900/50 px-2 py-1 text-xs font-medium text-indigo-200"
+                              className="rounded-md bg-cyber-yellow-500/10 px-2.5 py-1 text-xs font-medium text-cyber-yellow-400"
                             >
                               {tech}
                             </span>
@@ -175,7 +175,7 @@ export default function PortfolioPage() {
                         href={project.liveSiteUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 self-start rounded-lg bg-gradient-to-r from-fuchsia-600 to-violet-600 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-fuchsia-600/20"
+                        className="inline-flex items-center gap-2 self-start rounded-md bg-cyber-yellow-500 px-4 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-cyber-yellow-400 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyber-yellow-500/20"
                       >
                         View Live Site
                         <svg
@@ -204,20 +204,20 @@ export default function PortfolioPage() {
 
       {/* Example Solutions Section */}
       {exampleProjects.length > 0 && (
-        <section className="mb-20">
+        <section className="mb-16 md:mb-20">
           <ScrollReveal>
-            <div className="mb-8">
-              <h2 className="mb-4 text-2xl font-bold text-fuchsia-200">Example Solutions & Capabilities</h2>
-              <p className="text-indigo-100/80">
+            <div className="mb-6 md:mb-8">
+              <h2 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold text-white">Example Solutions & Capabilities</h2>
+              <p className="text-gray-300">
                 While these are not actual completed projects, they represent the types of solutions we're capable of building. These examples showcase our technical expertise and the business problems we can help solve.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {exampleProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="group overflow-hidden rounded-xl bg-gradient-to-br from-indigo-900/20 to-violet-900/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-fuchsia-900/10"
+                  className="group overflow-hidden rounded-lg bg-midnight-800/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10 ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30"
                 >
                   <div className="relative h-48 w-full overflow-hidden">
                     <Image
@@ -226,7 +226,7 @@ export default function PortfolioPage() {
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-indigo-950/90"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
                     
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <h3 className="mb-1 text-lg font-bold text-white">{project.title}</h3>
@@ -234,26 +234,26 @@ export default function PortfolioPage() {
                   </div>
                   
                   <div className="p-4">
-                    <p className="mb-4 text-sm text-indigo-100/90">{project.description}</p>
+                    <p className="mb-4 text-sm text-gray-300">{project.description}</p>
                     
                     <div className="mb-4 flex flex-wrap gap-2">
                       {project.technologies.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md bg-indigo-900/40 px-2 py-1 text-xs font-medium text-indigo-200"
+                          className="rounded-md bg-cyber-yellow-500/10 px-2 py-1 text-xs font-medium text-cyber-yellow-400"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 4 && (
-                        <span className="rounded-md bg-indigo-900/40 px-2 py-1 text-xs font-medium text-indigo-200">
+                        <span className="rounded-md bg-cyber-yellow-500/10 px-2 py-1 text-xs font-medium text-cyber-yellow-400">
                           +{project.technologies.length - 4} more
                         </span>
                       )}
                     </div>
                     
                     <button 
-                      className="group flex items-center gap-1 text-sm font-medium text-fuchsia-300 transition-all duration-300 hover:text-fuchsia-200"
+                      className="group flex items-center gap-1 text-sm font-medium text-cyber-yellow-500 transition-all duration-300 hover:text-cyber-yellow-400"
                       onClick={() => window.location.href = `#${project.id}`}
                     >
                       View details
@@ -283,17 +283,17 @@ export default function PortfolioPage() {
       {/* Future Portfolio Section */}
       <section className="mb-12">
         <ScrollReveal>
-          <div className="overflow-hidden rounded-xl bg-gradient-to-br from-indigo-900/20 to-violet-900/20 p-6 backdrop-blur-sm">
-            <div className="mb-6">
-              <h2 className="mb-2 text-2xl font-bold text-fuchsia-200">Looking to Start a Project?</h2>
-              <p className="text-indigo-100/80">
+          <div className="overflow-hidden rounded-lg bg-gradient-to-br from-midnight-800 to-black p-5 md:p-6 backdrop-blur-sm ring-1 ring-midnight-600">
+            <div className="mb-5 md:mb-6">
+              <h2 className="mb-2 text-xl md:text-2xl font-bold text-white">Looking to Start a Project?</h2>
+              <p className="text-gray-300">
                 We're always excited to take on new challenges and help businesses leverage technology to grow. If you have a project in mind, we'd love to discuss how we can help.
               </p>
             </div>
             
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-fuchsia-600 to-violet-600 px-4 py-2 text-sm font-medium text-white transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-fuchsia-600/20"
+              className="inline-flex items-center gap-2 rounded-md bg-cyber-yellow-500 px-4 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-cyber-yellow-400 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyber-yellow-500/20"
             >
               Let's Discuss Your Project
               <svg
