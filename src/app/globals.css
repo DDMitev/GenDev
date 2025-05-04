@@ -8,11 +8,13 @@
 @layer base {
   html, body {
     font-family: 'Inter', sans-serif;
-    @apply bg-gradient-to-b from-gray-950 to-navy-950 text-gray-50 min-h-screen;
+    background: linear-gradient(to bottom, #0F2027, #203A43);
+    color: #ECF0F1;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-medium;
+    font-weight: 500;
   }
 
   /* Animation for mobile menu fade in */
