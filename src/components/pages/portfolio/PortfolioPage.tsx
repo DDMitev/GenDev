@@ -27,7 +27,7 @@ export default function PortfolioPage() {
       description: 'Complete redesign and modernization of a construction company website, including multi-language support and custom admin panel.',
       imageUrl: '/projects/buildholding.jpg',
       client: 'BuildHolding',
-      year: '202X',
+      year: '2023',
       technologies: ['React', 'Node.js', 'Firebase', 'Google Maps API', 'i18next'],
       challenge: 'The client\'s existing website was outdated, slow, and failed to effectively represent the company to a modern audience. They needed to consolidate and present content from a 50-page brochure in an accessible web format with support for multiple languages.',
       solution: 'We developed a completely new, responsive website with a custom content management system allowing easy updates. The site includes multi-language support (Bulgarian, English, Russian), Google Maps integration for project locations, and a modern UI that properly showcases their services and projects.',
@@ -36,42 +36,42 @@ export default function PortfolioPage() {
     },
     {
       id: 'data-integration',
-      title: 'Data Integration System',
-      description: 'Example of a custom ETL pipeline solution that could connect multiple business systems for automated reporting.',
+      title: 'Data Integration Platform',
+      description: 'Example of a custom ETL pipeline solution that connects multiple business systems for automated data flow and reporting.',
       imageUrl: '/projects/data-integration.jpg',
       technologies: ['Node.js', 'Express', 'MongoDB', 'REST APIs', 'Data Transformation'],
-      challenge: 'Many businesses manually transfer data between their CRM, inventory systems, and accounting software, resulting in errors, delays, and inefficient use of staff time.',
-      solution: 'We can build custom integration systems that automatically sync data between platforms, standardize information formats, and generate comprehensive reports that would otherwise require hours of manual work.',
+      challenge: 'Many businesses struggle with siloed data across multiple systems (inventory, sales, finance), leading to manual data entry, inconsistencies, and delayed reporting.',
+      solution: 'We can develop custom data pipelines that extract information from various sources, transform it into standardized formats, and load it into target systems or reports. This eliminates manual work and provides real-time business intelligence.',
       isExample: true
     },
     {
       id: 'inventory-automation',
-      title: 'Inventory Management Solutions',
-      description: 'Example of an automation system for tracking inventory across multiple locations with updates and alerts.',
+      title: 'Inventory Management System',
+      description: 'Example of a web-based inventory tracking application with automated notifications and reporting capabilities.',
       imageUrl: '/projects/inventory.jpg',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSockets'],
-      challenge: 'Managing inventory across multiple locations can cause discrepancies and inefficiencies in distribution operations.',
-      solution: 'We can create inventory tracking systems with automated alerts for low stock and customizable reports. Such solutions typically improve accuracy and reduce management time significantly.',
+      challenge: 'Businesses with physical inventory often struggle with tracking stock levels, fulfillment status, and maintaining efficient supply chain operations.',
+      solution: 'We can build custom inventory management systems that provide real-time visibility, automate reordering processes, and generate insightful reports. These applications can be tailored to specific business workflows and integrated with existing systems.',
       isExample: true
     },
     {
-      id: 'analytics-dashboard',
-      title: 'Business Analytics Dashboards',
-      description: 'Example of interactive data visualization platforms with metrics and customizable reports we can develop.',
+      id: 'api-integration',
+      title: 'Payment Gateway Integration',
+      description: 'Example of seamless third-party API integration connecting e-commerce platforms with payment processors.',
       imageUrl: '/projects/analytics.jpg',
-      technologies: ['React', 'D3.js', 'Node.js', 'SQL', 'Data Visualization'],
-      challenge: 'Businesses often struggle to visualize and interpret large amounts of sales and customer data across multiple locations.',
-      solution: 'We can develop customizable dashboards that pull data from multiple sources and present it through intuitive visualizations, enabling better decision-making and trend identification.',
+      technologies: ['Node.js', 'Express', 'REST APIs', 'Payment Gateways', 'Authentication'],
+      challenge: 'Connecting e-commerce platforms with payment providers often requires complex API integration, security measures, and reliable error handling.',
+      solution: 'We can develop secure, robust integrations between your business systems and third-party services like payment gateways, shipping providers, or marketing platforms. Our solutions include proper authentication, error handling, and monitoring.',
       isExample: true
     },
     {
-      id: 'custom-crm',
-      title: 'Custom CRM Solutions',
-      description: 'Example of tailored customer relationship management systems for specialized business workflows.',
+      id: 'technical-audit',
+      title: 'Technical Auditing & Optimization',
+      description: 'Example of our technical consulting services to evaluate existing systems and recommend improvements.',
       imageUrl: '/projects/crm.jpg',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'Authentication'],
-      challenge: 'Off-the-shelf CRM solutions often don\'t accommodate specialized workflows and client management processes.',
-      solution: 'We can design and build custom CRMs tailored to specific needs, integrating with existing systems and automating unique processes.',
+      technologies: ['Performance Analysis', 'Security Assessment', 'Code Review', 'Architecture Planning'],
+      challenge: 'Many businesses operate with legacy systems or applications that have performance issues, security vulnerabilities, or aren\'t scalable to meet growing demands.',
+      solution: 'Our technical auditing service can evaluate your existing systems, identify bottlenecks and vulnerabilities, and provide a detailed roadmap for improvements. We can then implement these optimizations or guide your team through the process.',
       isExample: true
     },
     {
@@ -207,9 +207,9 @@ export default function PortfolioPage() {
         <section className="mb-16 md:mb-20">
           <ScrollReveal>
             <div className="mb-6 md:mb-8">
-              <h2 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold text-white">Example Solutions & Capabilities</h2>
+              <h2 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold text-white">Solution Capabilities</h2>
               <p className="text-gray-300">
-                While these are not actual completed projects, they represent the types of solutions we're capable of building. These examples showcase our technical expertise and the business problems we can help solve.
+                These examples showcase the types of solutions we can develop based on our technical expertise. Each represents a common business need we're equipped to address with custom development.
               </p>
             </div>
             
