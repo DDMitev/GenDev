@@ -7,28 +7,28 @@ import ContactInfo from './ContactInfo';
 export default function ContactPage() {
   const faqs = [
     {
-      question: 'What types of projects do you work with?',
-      answer: 'We specialize in web application development, data management solutions, API integrations, and technical consulting. Our partnership is ideal for businesses looking to improve their digital presence, streamline operations through automation, or connect disparate systems. We work with projects of various sizes, but typically focus on engagements valued at €300 or more.'
+      question: 'What types of design services do you offer?',
+      answer: 'We specialize in web design/development, custom email templates, and technical design consultation. We create responsive, visually appealing designs that work across all devices and help elevate your brand presence while ensuring excellent user experience and conversion optimization.'
     },
     {
-      question: 'How do you handle pricing?',
-      answer: 'We offer flexible pricing options based on project scope and requirements. For most services, we charge €30-50/hr or provide fixed project quotes for well-defined scopes. We believe in transparent pricing and will provide detailed estimates before any work begins.'
+      question: 'How do your design packages work?',
+      answer: 'We offer tiered design packages: Basic (€800-1500), Standard (€1500-3000), and Premium (€3000+) for websites. Email templates start at €150 for individual designs with packages available. Each tier includes different levels of customization, pages/templates, and additional services. We can provide a detailed breakdown based on your specific needs.'
     },
     {
-      question: 'Do you work with international clients?',
-      answer: 'Yes, absolutely! Based in Sofia, Bulgaria, we serve clients both locally and internationally. We\'re well-equipped for remote collaboration with convenient time zone overlap with most of Europe and the ability to accommodate calls with clients in North America and Asia when needed.'
+      question: 'What is your design process like?',
+      answer: 'Our design process includes: 1) Discovery & requirements gathering, 2) Concept & wireframing, 3) Visual design & feedback, 4) Development & implementation, and 5) Testing & launch. We maintain clear communication throughout and include multiple revision opportunities to ensure your complete satisfaction.'
     },
     {
-      question: 'What is your typical turnaround time?',
-      answer: 'Turnaround time varies based on project complexity and scope. Small projects might take 1-2 weeks, while larger projects typically span 2-3 months. We pride ourselves on clear communication regarding timelines and will provide regular updates throughout the development process.'
+      question: 'How do you handle design revisions?',
+      answer: 'We include 2-3 rounds of revisions in our standard packages, allowing you to provide feedback at key stages of the design process. We believe in collaborative design and work closely with you to ensure the final product perfectly matches your vision and business needs.'
     },
     {
-      question: 'How do you handle revisions and feedback?',
-      answer: 'Our collaborative approach includes regular check-ins and multiple opportunities for feedback. We typically include 2-3 rounds of revisions in our project quotes. Our goal is your complete satisfaction, so we\'ll work closely with you to ensure the final product meets your expectations.'
+      question: 'Do you provide design assets ownership?',
+      answer: 'Yes, upon final payment, you receive full ownership of all design assets created specifically for your project. We provide source files for your designs, allowing you or your team to make future modifications if needed.'
     },
     {
-      question: 'Do you provide support after project completion?',
-      answer: 'Yes, we offer ongoing support and maintenance packages for all completed projects. We also provide detailed documentation and knowledge transfer to ensure you or your team can manage day-to-day operations confidently.'
+      question: 'Do you offer maintenance and updates for designs?',
+      answer: 'We offer ongoing support and maintenance packages for all completed design projects. This includes regular updates, content changes, and technical maintenance to keep your website or email templates functioning optimally and securely.'
     }
   ];
 
@@ -37,10 +37,11 @@ export default function ContactPage() {
       {/* Hero Section */}
       <ScrollReveal>
         <div className="mb-12 md:mb-16 text-center">
-          <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl font-bold text-white">Get in Touch</h1>
+          <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl font-bold text-white">Let's Create Something Amazing</h1>
           <p className="mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
-            Have a project in mind or questions about our services? We'd love to hear from you. 
-            Our team is ready to discuss how we can help bring your vision to life.
+            Ready to elevate your brand with stunning design? Contact us to discuss your web design or 
+            email template needs. Our team is here to bring your vision to life with creative, 
+            functional designs that convert.
           </p>
         </div>
       </ScrollReveal>
@@ -53,7 +54,40 @@ export default function ContactPage() {
           </ScrollReveal>
           
           <ScrollReveal direction="right">
-            <ContactInfo />
+            <div className="space-y-8">
+              <ContactInfo />
+              
+              {/* Consultation Booking */}
+              <div className="rounded-lg bg-gradient-to-br from-midnight-800/90 to-midnight-700/90 p-6 shadow-xl backdrop-blur-sm border border-midnight-600">
+                <h3 className="mb-4 text-xl font-bold text-white">Book a Design Consultation</h3>
+                <p className="mb-4 text-gray-300">
+                  Schedule a free 30-minute consultation with our design team to discuss your project needs and explore how we can help.
+                </p>
+                <a 
+                  href="https://calendly.com/gendev-design/consultation" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-cyber-yellow-500 px-4 py-2 text-black font-medium transition-all hover:bg-cyber-yellow-400 hover:transform hover:-translate-y-1 hover:shadow-lg"
+                >
+                  Schedule Now
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>

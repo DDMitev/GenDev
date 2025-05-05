@@ -1,9 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
+import { Filter, Code2, Mail, Search, ArrowRight } from 'lucide-react';
 
+type ProjectCategory = 'All' | 'Web Design' | 'Email Templates' | 'Technical Consultation';
 type Project = {
   id: string;
   title: string;
@@ -15,11 +18,13 @@ type Project = {
   challenge?: string;
   solution?: string;
   liveSiteUrl?: string;
+  category: ProjectCategory | ProjectCategory[];
   featured?: boolean;
-  isExample?: boolean;
 };
 
 export default function PortfolioPage() {
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('All');
+
   const projects: Project[] = [
     {
       id: 'buildholding',
@@ -32,189 +37,230 @@ export default function PortfolioPage() {
       challenge: 'The client\'s existing website was outdated, slow, and failed to effectively represent the company to a modern audience. They needed to consolidate and present content from a 50-page brochure in an accessible web format with support for multiple languages.',
       solution: 'We developed a completely new, responsive website with a custom content management system allowing easy updates. The site includes multi-language support (Bulgarian, English, Russian), Google Maps integration for project locations, and a modern UI that properly showcases their services and projects.',
       liveSiteUrl: 'https://buildholding.netlify.app',
+      category: 'Web Design',
       featured: true
     },
     {
-      id: 'data-integration',
-      title: 'Data Integration Platform',
-      description: 'Example of a custom ETL pipeline solution that connects multiple business systems for automated data flow and reporting.',
-      imageUrl: '/projects/data-integration.jpg',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'REST APIs', 'Data Transformation'],
-      challenge: 'Many businesses struggle with siloed data across multiple systems (inventory, sales, finance), leading to manual data entry, inconsistencies, and delayed reporting.',
-      solution: 'We can develop custom data pipelines that extract information from various sources, transform it into standardized formats, and load it into target systems or reports. This eliminates manual work and provides real-time business intelligence.',
-      isExample: true
+      id: 'newsletter-template',
+      title: 'Monthly Newsletter Template',
+      description: 'Custom responsive newsletter template designed for high engagement and deliverability across all major email clients.',
+      imageUrl: '/projects/email-template-1.jpg',
+      client: 'GenDev Showcase',
+      year: '2025',
+      technologies: ['HTML Email', 'CSS', 'MJML', 'Responsive Design'],
+      challenge: 'Create a visually appealing newsletter template that renders correctly across all major email clients while maintaining brand consistency.',
+      solution: 'Designed a modern, modular email template with sections that can be easily customized. Used MJML to ensure compatibility and tested across 40+ email clients to guarantee consistent display.',
+      category: 'Email Templates',
+      featured: true
     },
     {
-      id: 'inventory-automation',
-      title: 'Inventory Management System',
-      description: 'Example of a web-based inventory tracking application with automated notifications and reporting capabilities.',
-      imageUrl: '/projects/inventory.jpg',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'WebSockets'],
-      challenge: 'Businesses with physical inventory often struggle with tracking stock levels, fulfillment status, and maintaining efficient supply chain operations.',
-      solution: 'We can build custom inventory management systems that provide real-time visibility, automate reordering processes, and generate insightful reports. These applications can be tailored to specific business workflows and integrated with existing systems.',
-      isExample: true
+      id: 'welcome-series',
+      title: 'E-commerce Welcome Series',
+      description: 'Series of five email templates designed to onboard new customers to an e-commerce platform with increasing conversion rates.',
+      imageUrl: '/projects/email-template-2.jpg',
+      technologies: ['HTML Email', 'CSS', 'Responsive Design', 'Email Automation'],
+      challenge: 'Design a welcome series that engages new subscribers and converts them into first-time customers.',
+      solution: 'Created a cohesive series of five emails with progressive messaging that guides subscribers toward their first purchase with increasing incentives.',
+      category: 'Email Templates'
     },
     {
-      id: 'api-integration',
-      title: 'Payment Gateway Integration',
-      description: 'Example of seamless third-party API integration connecting e-commerce platforms with payment processors.',
-      imageUrl: '/projects/analytics.jpg',
-      technologies: ['Node.js', 'Express', 'REST APIs', 'Payment Gateways', 'Authentication'],
-      challenge: 'Connecting e-commerce platforms with payment providers often requires complex API integration, security measures, and reliable error handling.',
-      solution: 'We can develop secure, robust integrations between your business systems and third-party services like payment gateways, shipping providers, or marketing platforms. Our solutions include proper authentication, error handling, and monitoring.',
-      isExample: true
+      id: 'consulting-project',
+      title: 'E-commerce Performance Optimization',
+      description: 'Technical consulting project focusing on improving site speed, UX, and conversion rates for an online store.',
+      imageUrl: '/projects/consulting.jpg',
+      client: 'Online Retailer',
+      year: '2024',
+      technologies: ['Performance Analysis', 'UX Audit', 'Accessibility', 'Technical SEO'],
+      challenge: 'The client\'s e-commerce site was experiencing slow load times and high bounce rates, especially on mobile devices.',
+      solution: 'Conducted a thorough technical audit identifying performance bottlenecks and UX issues. Provided a detailed implementation plan that resulted in 40% faster page loads and 15% higher conversion rates.',
+      category: 'Technical Consultation'
     },
     {
-      id: 'technical-audit',
-      title: 'Technical Auditing & Optimization',
-      description: 'Example of our technical consulting services to evaluate existing systems and recommend improvements.',
-      imageUrl: '/projects/crm.jpg',
-      technologies: ['Performance Analysis', 'Security Assessment', 'Code Review', 'Architecture Planning'],
-      challenge: 'Many businesses operate with legacy systems or applications that have performance issues, security vulnerabilities, or aren\'t scalable to meet growing demands.',
-      solution: 'Our technical auditing service can evaluate your existing systems, identify bottlenecks and vulnerabilities, and provide a detailed roadmap for improvements. We can then implement these optimizations or guide your team through the process.',
-      isExample: true
+      id: 'promotional-email',
+      title: 'Seasonal Campaign Templates',
+      description: 'Set of holiday-themed email templates designed for promotional campaigns with high visual impact.',
+      imageUrl: '/projects/email-template-3.jpg',
+      technologies: ['HTML Email', 'CSS', 'Responsive Design', 'Campaign Design'],
+      challenge: 'Create eye-catching seasonal promotional emails that stand out in crowded inboxes while maintaining brand consistency.',
+      solution: 'Designed a collection of templates with strong visual hierarchy, animation elements, and clear calls-to-action that can be repurposed for different seasonal campaigns.',
+      category: 'Email Templates'
     },
     {
-      id: 'future-portfolio',
-      title: 'Future Digital Products',
-      description: 'Our upcoming development roadmap includes specialized website templates, reusable code libraries, and digital products.',
-      imageUrl: '/projects/future.jpg',
-      technologies: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript'],
-      challenge: 'We\'re looking to expand our offerings beyond custom development services to include ready-to-use digital products.',
-      solution: 'Future plans include: industry-specific website templates, UI component libraries, and starter kits for common business applications.',
-      isExample: true
+      id: 'design-system',
+      title: 'Corporate Design System',
+      description: 'Development of a comprehensive design system for consistent branding across web and email assets.',
+      imageUrl: '/projects/design-system.jpg',
+      client: 'Financial Services Firm',
+      year: '2024',
+      technologies: ['Design Systems', 'Component Library', 'Documentation', 'Figma'],
+      challenge: 'The client needed a unified design language across their digital presence while allowing for flexible implementation.',
+      solution: 'Created a comprehensive design system including typography, color palettes, component libraries, and implementation guidelines for both web and email applications.',
+      category: ['Web Design', 'Technical Consultation']
     }
   ];
 
-  const featuredProjects = projects.filter(project => project.featured);
-  const regularProjects = projects.filter(project => !project.featured);
-  const exampleProjects = projects.filter(project => project.isExample);
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => 
+        Array.isArray(project.category) 
+          ? project.category.includes(activeFilter)
+          : project.category === activeFilter
+      );
+
+  const featuredProjects = filteredProjects.filter(project => project.featured);
+  const regularProjects = filteredProjects.filter(project => !project.featured);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       {/* Hero Section */}
       <ScrollReveal>
-        <div className="mb-12 md:mb-16 text-center">
+        <div className="mb-8 md:mb-12 text-center">
           <h1 className="mb-4 md:mb-6 text-3xl md:text-4xl font-bold text-white">Our Portfolio</h1>
           <p className="mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
-            Explore our work and see how we've helped businesses improve their digital presence and operational efficiency. We take pride in delivering solutions that combine technical excellence with business value.
+            Explore our design work and projects that showcase our approach to creating beautiful, functional digital experiences 
+            for web and email.
           </p>
         </div>
       </ScrollReveal>
 
-      {/* Featured Project */}
+      {/* Filter Navigation */}
+      <ScrollReveal>
+        <div className="mb-8 md:mb-12">
+          <div className="flex flex-wrap justify-center gap-2 mb-2">
+            <button
+              onClick={() => setActiveFilter('All')}
+              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                activeFilter === 'All'
+                  ? 'bg-cyber-yellow-500 text-black'
+                  : 'bg-midnight-800 text-white hover:bg-midnight-700'
+              }`}
+            >
+              <Filter className="h-4 w-4" />
+              All Projects
+            </button>
+            
+            <button
+              onClick={() => setActiveFilter('Web Design')}
+              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                activeFilter === 'Web Design'
+                  ? 'bg-cyber-yellow-500 text-black'
+                  : 'bg-midnight-800 text-white hover:bg-midnight-700'
+              }`}
+            >
+              <Code2 className="h-4 w-4" />
+              Web Design
+            </button>
+            
+            <button
+              onClick={() => setActiveFilter('Email Templates')}
+              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                activeFilter === 'Email Templates'
+                  ? 'bg-cyber-yellow-500 text-black'
+                  : 'bg-midnight-800 text-white hover:bg-midnight-700'
+              }`}
+            >
+              <Mail className="h-4 w-4" />
+              Email Templates
+            </button>
+            
+            <button
+              onClick={() => setActiveFilter('Technical Consultation')}
+              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                activeFilter === 'Technical Consultation'
+                  ? 'bg-cyber-yellow-500 text-black'
+                  : 'bg-midnight-800 text-white hover:bg-midnight-700'
+              }`}
+            >
+              <Search className="h-4 w-4" />
+              Technical Consultation
+            </button>
+          </div>
+          <p className="text-center text-sm text-gray-400">
+            Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''} in {activeFilter} category
+          </p>
+        </div>
+      </ScrollReveal>
+
+      {/* Featured Projects */}
       {featuredProjects.length > 0 && (
-        <section className="mb-16 md:mb-20">
+        <section className="mb-12 md:mb-16">
           <ScrollReveal>
-            <h2 className="mb-6 text-xl md:text-2xl font-bold text-white">Featured Project</h2>
-            {featuredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="overflow-hidden rounded-lg bg-gradient-to-br from-midnight-800/60 to-midnight-900/60 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10 ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30"
-              >
-                <div className="grid grid-cols-1 gap-6 p-5 md:p-6 lg:grid-cols-2 lg:p-8">
-                  <div className="relative h-60 w-full overflow-hidden rounded-lg sm:h-72 md:h-80 lg:h-96">
-                    <Image
-                      src={project.imageUrl}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
+            <h2 className="mb-6 text-xl md:text-2xl font-bold text-white">Featured Projects</h2>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {featuredProjects.map((project) => (
+                <div
+                  key={project.id}
+                  className="overflow-hidden rounded-lg bg-gradient-to-br from-midnight-800/60 to-midnight-900/60 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10 ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30"
+                >
+                  <div className="relative">
+                    <div className="relative h-60 w-full overflow-hidden sm:h-64">
+                      <Image
+                        src={project.imageUrl}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-300 hover:scale-105"
+                      />
+                    </div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-3 right-3">
+                      <span className="inline-flex items-center rounded-full bg-cyber-yellow-500/80 px-2.5 py-1 text-xs font-medium text-black backdrop-blur-sm">
+                        {Array.isArray(project.category) ? project.category[0] : project.category}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex flex-col justify-between">
-                    <div>
-                      <div className="mb-2 flex flex-wrap items-center gap-2 md:gap-3">
-                        <h3 className="text-xl md:text-2xl font-bold text-white">{project.title}</h3>
-                        
-                        {project.client && (
-                          <span className="rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400">
-                            {project.client}
-                          </span>
-                        )}
-                        
-                        {project.year && (
-                          <span className="rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400">
-                            {project.year}
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="mb-5 md:mb-6 text-gray-300">{project.description}</p>
-
-                      {project.challenge && (
-                        <div className="mb-4">
-                          <h4 className="mb-1 font-semibold text-white">The Challenge:</h4>
-                          <p className="text-sm text-gray-300">{project.challenge}</p>
-                        </div>
+                  
+                  <div className="p-5">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                      
+                      {project.client && (
+                        <span className="rounded-full bg-cyber-yellow-500/10 px-2.5 py-0.5 text-xs font-medium text-cyber-yellow-400">
+                          {project.client}
+                        </span>
                       )}
-
-                      {project.solution && (
-                        <div className="mb-5 md:mb-6">
-                          <h4 className="mb-1 font-semibold text-white">Our Solution:</h4>
-                          <p className="text-sm text-gray-300">{project.solution}</p>
-                        </div>
-                      )}
-
-                      <div className="mb-5 md:mb-6">
-                        <h4 className="mb-2 font-semibold text-white">Technologies Used:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="rounded-md bg-cyber-yellow-500/10 px-2.5 py-1 text-xs font-medium text-cyber-yellow-400"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
                     </div>
 
-                    {project.liveSiteUrl && (
-                      <Link
-                        href={project.liveSiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 self-start rounded-md bg-cyber-yellow-500 px-4 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-cyber-yellow-400 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyber-yellow-500/20"
-                      >
-                        View Live Site
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
+                    <p className="mb-4 text-gray-300">{project.description}</p>
+                    
+                    <div className="mb-4 flex flex-wrap gap-2">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-md bg-midnight-700/60 px-2 py-1 text-xs font-medium text-gray-300"
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                          />
-                        </svg>
-                      </Link>
-                    )}
+                          {tech}
+                        </span>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="rounded-md bg-midnight-700/60 px-2 py-1 text-xs font-medium text-gray-300">
+                          +{project.technologies.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                    
+                    <Link
+                      href={`/portfolio/${project.id}`}
+                      className="inline-flex items-center gap-1 text-sm font-medium text-cyber-yellow-500 transition-all duration-300 hover:text-cyber-yellow-400"
+                    >
+                      View project details
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </ScrollReveal>
         </section>
       )}
 
-      {/* Example Solutions Section */}
-      {exampleProjects.length > 0 && (
-        <section className="mb-16 md:mb-20">
+      {/* All Projects Grid */}
+      {regularProjects.length > 0 && (
+        <section className="mb-12 md:mb-16">
           <ScrollReveal>
-            <div className="mb-6 md:mb-8">
-              <h2 className="mb-3 md:mb-4 text-xl md:text-2xl font-bold text-white">Solution Capabilities</h2>
-              <p className="text-gray-300">
-                These examples showcase the types of solutions we can develop based on our technical expertise. Each represents a common business need we're equipped to address with custom development.
-              </p>
-            </div>
-            
+            <h2 className="mb-6 text-xl md:text-2xl font-bold text-white">{activeFilter === 'All' ? 'All Projects' : activeFilter}</h2>
             <div className="grid grid-cols-1 gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {exampleProjects.map((project) => (
+              {regularProjects.map((project) => (
                 <div
                   key={project.id}
                   className="group overflow-hidden rounded-lg bg-midnight-800/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10 ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30"
@@ -228,6 +274,12 @@ export default function PortfolioPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
                     
+                    <div className="absolute top-3 right-3">
+                      <span className="inline-flex items-center rounded-full bg-cyber-yellow-500/80 px-2.5 py-1 text-xs font-medium text-black backdrop-blur-sm">
+                        {Array.isArray(project.category) ? project.category[0] : project.category}
+                      </span>
+                    </div>
+                    
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <h3 className="mb-1 text-lg font-bold text-white">{project.title}</h3>
                     </div>
@@ -237,41 +289,28 @@ export default function PortfolioPage() {
                     <p className="mb-4 text-sm text-gray-300">{project.description}</p>
                     
                     <div className="mb-4 flex flex-wrap gap-2">
-                      {project.technologies.slice(0, 4).map((tech) => (
+                      {project.technologies.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md bg-cyber-yellow-500/10 px-2 py-1 text-xs font-medium text-cyber-yellow-400"
+                          className="rounded-md bg-midnight-700/60 px-2 py-1 text-xs font-medium text-gray-300"
                         >
                           {tech}
                         </span>
                       ))}
-                      {project.technologies.length > 4 && (
-                        <span className="rounded-md bg-cyber-yellow-500/10 px-2 py-1 text-xs font-medium text-cyber-yellow-400">
-                          +{project.technologies.length - 4} more
+                      {project.technologies.length > 3 && (
+                        <span className="rounded-md bg-midnight-700/60 px-2 py-1 text-xs font-medium text-gray-300">
+                          +{project.technologies.length - 3} more
                         </span>
                       )}
                     </div>
                     
-                    <button 
+                    <Link
+                      href={`/portfolio/${project.id}`}
                       className="group flex items-center gap-1 text-sm font-medium text-cyber-yellow-500 transition-all duration-300 hover:text-cyber-yellow-400"
-                      onClick={() => window.location.href = `#${project.id}`}
                     >
                       View details
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </button>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -280,14 +319,14 @@ export default function PortfolioPage() {
         </section>
       )}
 
-      {/* Future Portfolio Section */}
+      {/* CTA Section */}
       <section className="mb-12">
         <ScrollReveal>
           <div className="overflow-hidden rounded-lg bg-gradient-to-br from-midnight-800 to-black p-5 md:p-6 backdrop-blur-sm ring-1 ring-midnight-600">
             <div className="mb-5 md:mb-6">
-              <h2 className="mb-2 text-xl md:text-2xl font-bold text-white">Looking to Start a Project?</h2>
+              <h2 className="mb-2 text-xl md:text-2xl font-bold text-white">Ready to Elevate Your Brand?</h2>
               <p className="text-gray-300">
-                We're always excited to take on new challenges and help businesses leverage technology to grow. If you have a project in mind, we'd love to discuss how we can help.
+                Let's collaborate on your next web design or email template project. Our team is ready to help you create stunning, functional designs that convert.
               </p>
             </div>
             
@@ -295,21 +334,8 @@ export default function PortfolioPage() {
               href="/contact"
               className="inline-flex items-center gap-2 rounded-md bg-cyber-yellow-500 px-4 py-2 text-sm font-medium text-black transition-all duration-300 hover:bg-cyber-yellow-400 hover:translate-y-[-2px] hover:shadow-lg hover:shadow-cyber-yellow-500/20"
             >
-              Let's Discuss Your Project
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
+              Schedule a Design Consultation
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </ScrollReveal>

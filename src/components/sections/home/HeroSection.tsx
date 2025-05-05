@@ -18,14 +18,14 @@ export default function HeroSection() {
           <div className="md:flex md:items-center md:justify-between md:gap-12 lg:gap-24">
             <div className="mb-10 md:mb-0 md:w-1/2">
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                <span className="text-white">Modern Web Solutions</span>
+                <span className="text-white">Elevating Your Brand Through Design</span>
                 <span className="mt-2 block bg-gradient-to-r from-cyber-yellow-400 to-cyber-yellow-600 bg-clip-text text-transparent">
                   GenDev
                 </span>
               </h1>
               
               <p className="mt-5 max-w-md text-lg text-gray-300">
-                Custom web development and data solutions to boost your digital presence.
+                Professional web design, custom email templates, and technical consultation to enhance your digital presence.
               </p>
               
               <div className="mt-8 flex flex-wrap gap-4">

@@ -10,10 +10,11 @@ import {
   Search, 
   ChevronRight, 
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Mail
 } from 'lucide-react';
 
-type ServiceCategory = 'web' | 'data' | 'api' | 'consulting';
+type ServiceCategory = 'web' | 'email' | 'consulting';
 
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState<ServiceCategory>('web');
@@ -22,70 +23,53 @@ export default function ServicesPage() {
   const services = [
     {
       id: 'web',
-      title: 'Web Application Development',
+      title: 'Web Design & Development',
       icon: <Code2 className="h-6 w-6 text-cyber-yellow-500" />,
-      description: 'Custom web solutions built with modern, performant technologies to deliver exceptional digital experiences.',
+      description: 'Professional, responsive websites designed with modern aesthetics and optimized for user experience and conversion.',
       details: [
-        'New application development from the ground up',
-        'Website/application redesign & modernization',
-        'E-commerce solutions and content management systems',
-        'Responsive web applications with modern features',
-        'Frontend development with React, Next.js, and Tailwind CSS',
-        'Backend development with Node.js and Express'
+        'New website design and development',
+        'Website redesign & modernization',
+        'Responsive design for all devices',
+        'UI/UX design with conversion focus',
+        'Modern frameworks: React, Next.js, Tailwind CSS',
+        'Performance optimization and accessibility'
       ],
-      technologies: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'Firebase', 'Tailwind CSS'],
-      pricing: '€30-50/hr or fixed project quotes',
+      technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design', 'UI/UX Design'],
+      pricing: 'Available in Basic (€800-1500), Standard (€1500-3000), and Premium (€3000+) tiers',
       cta: 'Discuss Your Web Project'
     },
     {
-      id: 'data',
-      title: 'Data Management & Automation',
-      icon: <Database className="h-6 w-6 text-cyber-yellow-500" />,
-      description: 'Transform raw data into actionable information and streamline operations with automated workflows.',
+      id: 'email',
+      title: 'Custom Email Templates',
+      icon: <Mail className="h-6 w-6 text-cyber-yellow-500" />,
+      description: 'Eye-catching, responsive email templates that work flawlessly across all devices and email clients.',
       details: [
-        'ETL pipeline development (Extract, Transform, Load)',
-        'Data cleaning & validation services',
-        'Database design & optimization (SQL/NoSQL)',
-        'Automated reporting solutions',
-        'Data migration and transformation',
-        'Workflow automation'
+        'Newsletter template design',
+        'Promotional email campaigns',
+        'Transactional email templates',
+        'Welcome sequence designs',
+        'Responsive testing across all major email clients',
+        'HTML/CSS email coding with compatibility focus'
       ],
-      technologies: ['Python', 'Node.js', 'SQL/NoSQL', 'Firebase', 'Excel/CSV Processing', 'Data Visualization'],
-      pricing: 'Project-based pricing, typically €1000+ depending on complexity',
-      cta: 'Improve Your Data Systems'
-    },
-    {
-      id: 'api',
-      title: 'Custom API & Integration',
-      icon: <Share2 className="h-6 w-6 text-cyber-yellow-500" />,
-      description: 'Connect disparate systems and automate data flow between applications for seamless operations.',
-      details: [
-        'API integration & data syncing between platforms',
-        'Custom RESTful API development',
-        'Third-party API integration (payment gateways, CRMs, etc.)',
-        'Webhooks and event-driven architecture',
-        'Data synchronization between different platforms',
-        'Automated workflows and process optimization'
-      ],
-      technologies: ['Node.js', 'Express', 'REST APIs', 'Webhooks', 'Authentication', 'JSON/XML'],
-      pricing: 'Starting at €500 for basic integrations',
-      cta: 'Connect Your Systems'
+      technologies: ['HTML Email', 'Responsive Design', 'MJML', 'Email Testing', 'Campaign Design', 'A/B Testing'],
+      pricing: 'Individual templates from €150, packages starting at €500 for sets of 3-5 templates',
+      cta: 'Create Email Templates'
     },
     {
       id: 'consulting',
-      title: 'Technical Consulting',
+      title: 'Technical Consultation',
       icon: <Search className="h-6 w-6 text-cyber-yellow-500" />,
-      description: 'Expert guidance on technology decisions, architecture, and implementation strategies.',
+      description: 'Expert guidance for design implementation, technology selection, and optimization for your digital projects.',
       details: [
-        'Technology stack selection and architectural planning',
-        'Code reviews and performance optimization',
-        'Legacy system modernization strategies',
-        'Technical strategy and roadmap development',
-        'Security assessments and best practices',
-        'Team augmentation for specific project phases'
+        'Design implementation strategy',
+        'Technology stack recommendations',
+        'Performance optimization for existing sites',
+        'Accessibility compliance consulting',
+        'Technical SEO and site structure guidance',
+        'Design system development and documentation'
       ],
-      technologies: ['System Architecture', 'Technology Selection', 'Performance Optimization', 'Security Best Practices', 'Development Standards'],
-      pricing: '€30-50/hr for consulting services',
+      technologies: ['Design Systems', 'Accessibility Standards', 'Performance Optimization', 'Technical SEO', 'Development Best Practices'],
+      pricing: '€50-80/hr for consulting services, packages available',
       cta: 'Book a Consultation'
     }
   ];

@@ -1,12 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import CustomDropdown from '@/components/ui/CustomDropdown';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    projectType: 'Web Design',
+    budget: '',
+    timeline: '',
+    inspirationLinks: '',
     message: ''
   });
   
@@ -21,6 +25,13 @@ export default function ContactForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleDropdownChange = (name: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -46,7 +57,10 @@ export default function ContactForm() {
       setFormData({
         name: '',
         email: '',
-        subject: '',
+        projectType: 'Web Design',
+        budget: '',
+        timeline: '',
+        inspirationLinks: '',
         message: ''
       });
     } catch (error) {
@@ -95,24 +109,77 @@ export default function ContactForm() {
       </div>
       
       <div>
-        <label htmlFor="subject" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
-          Subject
+        <CustomDropdown
+          id="projectType"
+          name="projectType"
+          label="Project Type"
+          value={formData.projectType}
+          onChange={(value) => handleDropdownChange('projectType', value)}
+          required
+          options={[
+            { value: 'Web Design', label: 'Web Design & Development' },
+            { value: 'Email Templates', label: 'Custom Email Templates' },
+            { value: 'Technical Consultation', label: 'Design Technical Consultation' },
+            { value: 'Other', label: 'Other (Please specify in message)' }
+          ]}
+        />
+      </div>
+      
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2">
+        <div>
+          <CustomDropdown
+            id="budget"
+            name="budget"
+            label="Budget Range"
+            value={formData.budget}
+            onChange={(value) => handleDropdownChange('budget', value)}
+            placeholder="Select budget range"
+            options={[
+              { value: 'Email Templates (€150-500)', label: 'Email Templates (€150-500)' },
+              { value: 'Web Design (€800-3,000)', label: 'Web Design (€800-3,000)' },
+              { value: 'Technical Consultation (€300-1,000)', label: 'Technical Consultation (€300-1,000)' },
+              { value: 'Custom Project (€3,000+)', label: 'Custom Project (€3,000+)' },
+              { value: 'Not sure yet', label: 'Not sure yet' }
+            ]}
+          />
+        </div>
+        <div>
+          <CustomDropdown
+            id="timeline"
+            name="timeline"
+            label="Timeline Expectations"
+            value={formData.timeline}
+            onChange={(value) => handleDropdownChange('timeline', value)}
+            placeholder="Select timeline"
+            options={[
+              { value: 'ASAP (1-2 weeks)', label: 'ASAP (1-2 weeks)' },
+              { value: 'Soon (2-4 weeks)', label: 'Soon (2-4 weeks)' },
+              { value: 'This quarter', label: 'This quarter' },
+              { value: 'No rush', label: 'No rush' },
+              { value: 'Not sure yet', label: 'Not sure yet' }
+            ]}
+          />
+        </div>
+      </div>
+      
+      <div>
+        <label htmlFor="inspirationLinks" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
+          Design Inspiration Links <span className="text-gray-400 text-xs">(Optional)</span>
         </label>
         <input
           type="text"
-          id="subject"
-          name="subject"
-          value={formData.subject}
+          id="inspirationLinks"
+          name="inspirationLinks"
+          value={formData.inspirationLinks}
           onChange={handleChange}
-          required
           className="w-full rounded-lg border border-midnight-600 bg-midnight-800/50 p-2.5 md:p-3 text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyber-yellow-500 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30"
-          placeholder="Project inquiry"
+          placeholder="URLs to designs you like (separate multiple links with commas)"
         />
       </div>
       
       <div>
         <label htmlFor="message" className="mb-1.5 md:mb-2 block text-sm font-medium text-white">
-          Message
+          Project Details
         </label>
         <textarea
           id="message"
@@ -122,7 +189,7 @@ export default function ContactForm() {
           required
           rows={6}
           className="w-full rounded-lg border border-midnight-600 bg-midnight-800/50 p-2.5 md:p-3 text-white placeholder-gray-400 backdrop-blur-sm focus:border-cyber-yellow-500 focus:outline-none focus:ring-2 focus:ring-cyber-yellow-500/30"
-          placeholder="Tell me about your project or inquiry..."
+          placeholder="Tell us about your project, goals, and any specific requirements..."
         ></textarea>
       </div>
       

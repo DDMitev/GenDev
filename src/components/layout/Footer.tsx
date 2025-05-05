@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import GenDevLogo from '@/components/ui/GenDevLogo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,12 +12,13 @@ export default function Footer() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 md:max-w-md">
             <Link href="/" className="flex items-center">
-              <span className="self-center text-xl font-semibold text-white">
+              <GenDevLogo className="h-12" />
+              <span className="ml-2 self-center text-xl font-semibold text-white sr-only">
                 GenDev
               </span>
             </Link>
             <p className="mt-4 text-gray-300">
-              We're a specialized partnership delivering modern web development and data management solutions to help businesses improve their digital presence and operational efficiency.
+              We're a specialized design agency delivering modern web design, custom email templates, and technical design consultation to help businesses enhance their visual identity and digital presence.
             </p>
             <p className="mt-3 text-sm text-gray-400">
               Based in Sofia, Bulgaria • Serving clients worldwide
@@ -28,16 +30,16 @@ export default function Footer() {
               <h2 className="mb-4 text-sm font-semibold uppercase text-white">Services</h2>
               <ul className="space-y-2 text-sm text-gray-300">
                 <li>
-                  <Link href="/services" className="hover:text-cyber-yellow-500">Web Development</Link>
+                  <Link href="/services" className="hover:text-cyber-yellow-500">Web Design & Development</Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-cyber-yellow-500">Data Management</Link>
+                  <Link href="/services" className="hover:text-cyber-yellow-500">Custom Email Templates</Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-cyber-yellow-500">API Integration</Link>
+                  <Link href="/services" className="hover:text-cyber-yellow-500">Technical Consultation</Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-cyber-yellow-500">Technical Consulting</Link>
+                  <Link href="/services" className="hover:text-cyber-yellow-500">UI/UX Design</Link>
                 </li>
               </ul>
             </div>

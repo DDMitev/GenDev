@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import Container from './Container';
+import GenDevLogo from '@/components/ui/GenDevLogo';
 
 // Navigation links
 const navLinks = [
@@ -22,10 +23,8 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="relative flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-r from-cyber-yellow-500 to-cyber-yellow-600 text-black font-bold">
-              G
-            </div>
-            <span className="ml-2 text-xl font-semibold text-white">GenDev</span>
+            <GenDevLogo className="h-full py-1" />
+            <span className="ml-2 text-xl font-semibold text-white sr-only">GenDev</span>
           </Link>
 
           {/* Desktop navigation */}

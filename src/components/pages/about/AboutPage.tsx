@@ -14,7 +14,11 @@ import {
   Database,
   Globe,
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  Mail,
+  Palette as PaletteIcon,
+  Smartphone,
+  Zap
 } from 'lucide-react';
 
 type SkillGroup = {
@@ -23,50 +27,50 @@ type SkillGroup = {
   skills: { name: string; level: number }[];
 };
 
-type TabType = 'partnership' | 'expertise' | 'experience';
+type TabType = 'partnership' | 'approach' | 'experience';
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState<TabType>('partnership');
 
   const skillGroups: SkillGroup[] = [
     {
-      category: 'Frontend',
+      category: 'UI/UX Design',
+      icon: <PaletteIcon className="h-5 w-5 text-cyber-yellow-500" />,
+      skills: [
+        { name: 'Web Design', level: 95 },
+        { name: 'Responsive Design', level: 95 },
+        { name: 'UI/UX Principles', level: 90 },
+        { name: 'Design Systems', level: 85 },
+      ],
+    },
+    {
+      category: 'Development',
       icon: <Code2 className="h-5 w-5 text-cyber-yellow-500" />,
       skills: [
         { name: 'React & Next.js', level: 90 },
-        { name: 'TypeScript', level: 85 },
-        { name: 'Tailwind CSS', level: 90 },
         { name: 'HTML/CSS/JavaScript', level: 95 },
+        { name: 'Tailwind CSS', level: 90 },
+        { name: 'TypeScript', level: 85 },
       ],
     },
     {
-      category: 'Backend',
-      icon: <Database className="h-5 w-5 text-cyber-yellow-500" />,
+      category: 'Email Design',
+      icon: <Mail className="h-5 w-5 text-cyber-yellow-500" />,
       skills: [
-        { name: 'Node.js & Express', level: 85 },
-        { name: 'RESTful APIs', level: 90 },
-        { name: 'Firebase', level: 80 },
-        { name: 'Authentication', level: 85 },
-      ],
-    },
-    {
-      category: 'Data & Integrations',
-      icon: <Database className="h-5 w-5 text-cyber-yellow-500" />,
-      skills: [
-        { name: 'ETL Pipelines', level: 85 },
-        { name: 'Data Management', level: 80 },
-        { name: 'API Integration', level: 90 },
-        { name: 'Automation', level: 85 },
+        { name: 'HTML Email', level: 90 },
+        { name: 'Email Client Compatibility', level: 85 },
+        { name: 'Responsive Email', level: 90 },
+        { name: 'Campaign Design', level: 85 },
       ],
     },
     {
       category: 'Tools & Methods',
       icon: <Briefcase className="h-5 w-5 text-cyber-yellow-500" />,
       skills: [
-        { name: 'Git & CI/CD', level: 85 },
-        { name: 'Testing', level: 80 },
-        { name: 'Agile', level: 85 },
-        { name: 'Performance', level: 80 },
+        { name: 'Figma & Design Tools', level: 85 },
+        { name: 'Version Control', level: 90 },
+        { name: 'Prototyping', level: 85 },
+        { name: 'Design Testing', level: 80 },
       ],
     },
   ];
@@ -87,7 +91,7 @@ export default function AboutPage() {
                   <div className="flex items-start gap-4 rounded-lg bg-midnight-800/80 p-4 backdrop-blur-sm ring-1 ring-midnight-600">
                     <Lightbulb className="mt-1 h-5 w-5 flex-shrink-0 text-cyber-yellow-500" />
                     <p className="text-gray-300">
-                      We combine <span className="text-white font-medium">technical expertise</span> with <span className="text-white font-medium">business acumen</span> to deliver solutions that help businesses thrive.
+                      We combine <span className="text-white font-medium">design expertise</span> with <span className="text-white font-medium">technical implementation</span> to deliver solutions that help businesses create meaningful connections with their audience.
                     </p>
                   </div>
                   
@@ -101,7 +105,7 @@ export default function AboutPage() {
                   <div className="flex items-start gap-4 rounded-lg bg-midnight-800/80 p-4 backdrop-blur-sm ring-1 ring-midnight-600">
                     <Clock className="mt-1 h-5 w-5 flex-shrink-0 text-cyber-yellow-500" />
                     <p className="text-gray-300">
-                      We prioritize <span className="text-white font-medium">clear communication</span>, <span className="text-white font-medium">strategic thinking</span>, and <span className="text-white font-medium">technical excellence</span> in every project.
+                      We prioritize <span className="text-white font-medium">design excellence</span>, <span className="text-white font-medium">clear communication</span>, and <span className="text-white font-medium">technical precision</span> in every project.
                     </p>
                   </div>
                 </div>
@@ -117,20 +121,20 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h3 className="mb-2 text-center text-xl font-semibold text-white">Deyan Mitev</h3>
-                  <p className="text-center text-sm font-medium text-gray-300">Technical Lead</p>
+                  <p className="text-center text-sm font-medium text-gray-300">Design & Technical Lead</p>
                   
                   <div className="mt-4 space-y-2">
                     <div className="flex items-center gap-2 text-sm text-gray-300">
                       <CheckCircle2 className="h-4 w-4 text-cyber-yellow-500" />
-                      <span>Full-Stack Development</span>
+                      <span>UI/UX Design</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-300">
                       <CheckCircle2 className="h-4 w-4 text-cyber-yellow-500" />
-                      <span>React & Next.js Expert</span>
+                      <span>Frontend Development</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-300">
                       <CheckCircle2 className="h-4 w-4 text-cyber-yellow-500" />
-                      <span>Data Management Solutions</span>
+                      <span>Design Implementation</span>
                     </div>
                   </div>
                 </div>
@@ -144,7 +148,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h3 className="mb-2 text-center text-xl font-semibold text-white">Matey Manasiev</h3>
-                  <p className="text-center text-sm font-medium text-gray-300">Business Development</p>
+                  <p className="text-center text-sm font-medium text-gray-300">Business & Content Lead</p>
                   
                   <div className="mt-4 space-y-2">
                     <div className="flex items-center gap-2 text-sm text-gray-300">
@@ -157,7 +161,7 @@ export default function AboutPage() {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-300">
                       <CheckCircle2 className="h-4 w-4 text-cyber-yellow-500" />
-                      <span>Business Strategy</span>
+                      <span>Content Strategy</span>
                     </div>
                   </div>
                 </div>
@@ -165,9 +169,95 @@ export default function AboutPage() {
             </div>
           </div>
         );
-      case 'expertise':
+      case 'approach':
         return (
           <div>
+            <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div className="rounded-lg bg-midnight-800/60 p-5 backdrop-blur-sm ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
+                  <PaletteIcon className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-white">User-Centered Design</h3>
+                <p className="text-sm text-gray-300">We design with your audience in mind, creating intuitive experiences that engage and convert visitors. Our design process begins with understanding user needs and business goals.</p>
+              </div>
+              
+              <div className="rounded-lg bg-midnight-800/60 p-5 backdrop-blur-sm ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
+                  <Smartphone className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-white">Responsive Design</h3>
+                <p className="text-sm text-gray-300">Every design we create is fully responsive, ensuring your website or email looks perfect on every device. We thoroughly test on multiple screen sizes and platforms.</p>
+              </div>
+              
+              <div className="rounded-lg bg-midnight-800/60 p-5 backdrop-blur-sm ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-midnight-700 to-black text-cyber-yellow-500">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="mb-2 text-lg font-semibold text-white">Performance Focus</h3>
+                <p className="text-sm text-gray-300">Beautiful design shouldn't sacrifice speed. We optimize every element to ensure quick loading times while maintaining visual appeal and functionality.</p>
+              </div>
+            </div>
+            
+            <div className="mb-8">
+              <h3 className="mb-4 text-xl font-semibold text-white">Our Design Process</h3>
+              <div className="relative space-y-6 before:absolute before:inset-0 before:ml-5 before:-translate-x-px before:h-full before:w-0.5 before:bg-gradient-to-b before:from-cyber-yellow-500 before:via-cyber-yellow-600 before:to-cyber-yellow-400 md:ml-8">
+                <div className="relative flex items-start">
+                  <div className="absolute left-0 mt-1 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                    <span className="text-black font-bold">1</span>
+                  </div>
+                  
+                  <div className="ml-16 space-y-2">
+                    <div className="text-lg font-semibold text-white">Discovery & Research</div>
+                    <p className="text-sm text-gray-300">We begin by understanding your brand, audience, and goals. Research into competitors and industry trends informs our approach.</p>
+                  </div>
+                </div>
+                
+                <div className="relative flex items-start">
+                  <div className="absolute left-0 mt-1 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                    <span className="text-black font-bold">2</span>
+                  </div>
+                  
+                  <div className="ml-16 space-y-2">
+                    <div className="text-lg font-semibold text-white">Concept & Wireframing</div>
+                    <p className="text-sm text-gray-300">We create initial concepts and wireframes to establish information architecture and core design elements before moving to detailed designs.</p>
+                  </div>
+                </div>
+                
+                <div className="relative flex items-start">
+                  <div className="absolute left-0 mt-1 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                    <span className="text-black font-bold">3</span>
+                  </div>
+                  
+                  <div className="ml-16 space-y-2">
+                    <div className="text-lg font-semibold text-white">Visual Design</div>
+                    <p className="text-sm text-gray-300">High-fidelity designs bring your project to life with attention to typography, color, imagery, and interactive elements.</p>
+                  </div>
+                </div>
+                
+                <div className="relative flex items-start">
+                  <div className="absolute left-0 mt-1 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                    <span className="text-black font-bold">4</span>
+                  </div>
+                  
+                  <div className="ml-16 space-y-2">
+                    <div className="text-lg font-semibold text-white">Development & Implementation</div>
+                    <p className="text-sm text-gray-300">We transform designs into code with meticulous attention to detail, ensuring your design is perfectly executed.</p>
+                  </div>
+                </div>
+                
+                <div className="relative flex items-start">
+                  <div className="absolute left-0 mt-1 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                    <span className="text-black font-bold">5</span>
+                  </div>
+                  
+                  <div className="ml-16 space-y-2">
+                    <div className="text-lg font-semibold text-white">Testing & Refinement</div>
+                    <p className="text-sm text-gray-300">Rigorous testing across devices and platforms ensures your design works flawlessly, with refinements made based on user feedback.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {skillGroups.map((group) => (
                 <div 
@@ -198,24 +288,6 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-            
-            <div className="mt-8 rounded-lg bg-midnight-800/60 p-6 backdrop-blur-sm ring-1 ring-midnight-600">
-              <h3 className="mb-4 text-xl font-semibold text-white">Our Approach</h3>
-              <div className="grid grid-cols-1 gap-5 md:gap-6 md:grid-cols-3">
-                <div className="rounded-lg bg-midnight-900/70 p-4 backdrop-blur-sm ring-1 ring-midnight-700">
-                  <h4 className="mb-2 font-medium text-white">Discovery</h4>
-                  <p className="text-sm text-gray-300">We start by understanding your business needs and technical requirements before proposing solutions.</p>
-                </div>
-                <div className="rounded-lg bg-midnight-900/70 p-4 backdrop-blur-sm ring-1 ring-midnight-700">
-                  <h4 className="mb-2 font-medium text-white">Implementation</h4>
-                  <p className="text-sm text-gray-300">We develop using modern best practices, with regular communication and progress updates.</p>
-                </div>
-                <div className="rounded-lg bg-midnight-900/70 p-4 backdrop-blur-sm ring-1 ring-midnight-700">
-                  <h4 className="mb-2 font-medium text-white">Support</h4>
-                  <p className="text-sm text-gray-300">We maintain and optimize your solution, ensuring it continues to meet your evolving needs.</p>
-                </div>
-              </div>
-            </div>
           </div>
         );
       case 'experience':
@@ -225,17 +297,17 @@ export default function AboutPage() {
               {/* Timeline Item 1 */}
               <div className="relative flex items-start">
                 <div className="absolute left-0 mt-1.5 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
-                  <Globe className="h-5 w-5 text-black" />
+                  <PaletteIcon className="h-5 w-5 text-black" />
                 </div>
                 
                 <div className="ml-16 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <div className="text-xl font-semibold text-white">BuildHolding Project</div>
-                      <div className="text-sm text-gray-400">Feb 2024 - Apr 2024</div>
+                      <div className="text-xl font-semibold text-white">Fashion Brand Portfolio</div>
+                      <div className="text-sm text-gray-400">Mar 2025 - Apr 2025</div>
                     </div>
                     <div className="mt-2 inline-flex rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400 sm:mt-0">
-                      Complete Website Redesign
+                      Web Design & Development
                     </div>
                   </div>
                   
@@ -243,15 +315,15 @@ export default function AboutPage() {
                     <ul className="space-y-2 text-sm text-gray-300">
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Multi-language support (Bulgarian, English, Russian)</span>
+                        <span>Minimalist product gallery with custom hover interactions</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Custom admin panel for content management</span>
+                        <span>Animated transitions between product categories</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Google Maps integration and responsive design</span>
+                        <span>Integrated lookbook with seasonal collections</span>
                       </li>
                     </ul>
                   </div>
@@ -261,17 +333,17 @@ export default function AboutPage() {
               {/* Timeline Item 2 */}
               <div className="relative flex items-start">
                 <div className="absolute left-0 mt-1.5 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
-                  <Database className="h-5 w-5 text-black" />
+                  <Mail className="h-5 w-5 text-black" />
                 </div>
                 
                 <div className="ml-16 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <div className="text-xl font-semibold text-white">Data Integration Projects</div>
-                      <div className="text-sm text-gray-400">2023 - Present</div>
+                      <div className="text-xl font-semibold text-white">Email Campaign Templates</div>
+                      <div className="text-sm text-gray-400">Jan 2025 - Feb 2025</div>
                     </div>
                     <div className="mt-2 inline-flex rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400 sm:mt-0">
-                      Multiple Clients
+                      Custom Email Templates
                     </div>
                   </div>
                   
@@ -279,15 +351,15 @@ export default function AboutPage() {
                     <ul className="space-y-2 text-sm text-gray-300">
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>ETL pipelines and data migration solutions</span>
+                        <span>Responsive email templates for product launches</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>System integration via API development</span>
+                        <span>Interactive elements with fallbacks for all email clients</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Automated reporting and data workflows</span>
+                        <span>Custom designed newsletter system with analytics integration</span>
                       </li>
                     </ul>
                   </div>
@@ -297,17 +369,17 @@ export default function AboutPage() {
               {/* Timeline Item 3 */}
               <div className="relative flex items-start">
                 <div className="absolute left-0 mt-1.5 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
-                  <Code2 className="h-5 w-5 text-black" />
+                  <Globe className="h-5 w-5 text-black" />
                 </div>
                 
                 <div className="ml-16 space-y-3">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <div className="text-xl font-semibold text-white">Custom Tools & Automations</div>
-                      <div className="text-sm text-gray-400">2022 - Present</div>
+                      <div className="text-xl font-semibold text-white">BuildHolding Redesign</div>
+                      <div className="text-sm text-gray-400">Nov 2024 - Jan 2025</div>
                     </div>
                     <div className="mt-2 inline-flex rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400 sm:mt-0">
-                      Bespoke Solutions
+                      Complete Design Overhaul
                     </div>
                   </div>
                   
@@ -315,63 +387,90 @@ export default function AboutPage() {
                     <ul className="space-y-2 text-sm text-gray-300">
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Process automation bots and scripts</span>
+                        <span>Modernized UI with custom project showcase gallery</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Internal tools for workflow optimization</span>
+                        <span>Improved mobile experience with touch-optimized menus</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                        <span>Custom data management applications</span>
+                        <span>Interactive location map with project filtering</span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              <div className="overflow-hidden rounded-lg bg-midnight-800/60 p-6 backdrop-blur-sm ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10">
-                <div className="mb-4 flex items-center gap-3">
-                  <GraduationCap className="h-6 w-6 text-cyber-yellow-500" />
-                  <h3 className="text-xl font-semibold text-white">Our Education</h3>
+              
+              {/* Timeline Item 4 */}
+              <div className="relative flex items-start">
+                <div className="absolute left-0 mt-1.5 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                  <Lightbulb className="h-5 w-5 text-black" />
                 </div>
-                <div className="space-y-4">
-                  <div className="rounded-lg bg-midnight-900/70 p-3 ring-1 ring-midnight-700">
-                    <h4 className="font-medium text-white">Deyan Mitev</h4>
-                    <p className="text-sm text-gray-300">Technical University of Sofia</p>
-                    <p className="text-xs text-gray-400">Pursuing a Bachelor's degree in Mechanical Engineering</p>
+                
+                <div className="ml-16 space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <div className="text-xl font-semibold text-white">Design System Implementation</div>
+                      <div className="text-sm text-gray-400">Sep 2024 - Oct 2024</div>
+                    </div>
+                    <div className="mt-2 inline-flex rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400 sm:mt-0">
+                      Technical Consultation
+                    </div>
                   </div>
-                  <div className="rounded-lg bg-midnight-900/70 p-3 ring-1 ring-midnight-700">
-                    <h4 className="font-medium text-white">Matey Manasiev</h4>
-                    <p className="text-sm text-gray-300">University of National and World Economy</p>
-                    <p className="text-xs text-gray-400">Pursuing a Business degree</p>
+                  
+                  <div className="rounded-lg bg-midnight-800/60 p-4 backdrop-blur-sm ring-1 ring-midnight-600">
+                    <ul className="space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
+                        <span>Created comprehensive component library with Figma</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
+                        <span>Developed technical documentation for design implementation</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
+                        <span>Trained client team on design system maintenance</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
               
-              <div className="overflow-hidden rounded-lg bg-midnight-800/60 p-6 backdrop-blur-sm ring-1 ring-midnight-600 hover:ring-cyber-yellow-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyber-yellow-500/10">
-                <div className="mb-4 flex items-center gap-3">
-                  <Briefcase className="h-6 w-6 text-cyber-yellow-500" />
-                  <h3 className="text-xl font-semibold text-white">Professional Development</h3>
+              {/* Timeline Item 5 */}
+              <div className="relative flex items-start">
+                <div className="absolute left-0 mt-1.5 h-10 w-10 rounded-full bg-gradient-to-br from-cyber-yellow-500 to-cyber-yellow-600 flex items-center justify-center shadow-md">
+                  <Smartphone className="h-5 w-5 text-black" />
                 </div>
-                <div className="space-y-4">
-                  <p className="text-gray-300">We continuously upgrade our skills through:</p>
-                  <ul className="space-y-2 text-sm text-gray-300">
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                      <span>Industry conferences and workshops</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                      <span>Online courses in emerging technologies</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
-                      <span>Business and technical certifications</span>
-                    </li>
-                  </ul>
+                
+                <div className="ml-16 space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <div className="text-xl font-semibold text-white">UI/UX Design Portfolio</div>
+                      <div className="text-sm text-gray-400">2023 - Present</div>
+                    </div>
+                    <div className="mt-2 inline-flex rounded-full bg-cyber-yellow-500/10 px-3 py-1 text-xs font-medium text-cyber-yellow-400 sm:mt-0">
+                      Ongoing Projects
+                    </div>
+                  </div>
+                  
+                  <div className="rounded-lg bg-midnight-800/60 p-4 backdrop-blur-sm ring-1 ring-midnight-600">
+                    <ul className="space-y-2 text-sm text-gray-300">
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
+                        <span>User experience optimization for e-commerce sites</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
+                        <span>Mobile-first design approach for interactive applications</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-cyber-yellow-500" />
+                        <span>Accessibility improvements across client platforms</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -411,15 +510,15 @@ export default function AboutPage() {
           </button>
           
           <button
-            onClick={() => setActiveTab('expertise')}
+            onClick={() => setActiveTab('approach')}
             className={`flex items-center gap-2 rounded-t-lg px-4 py-2 md:px-6 md:py-3 text-sm font-medium transition-colors ${
-              activeTab === 'expertise'
+              activeTab === 'approach'
                 ? 'bg-midnight-800 text-cyber-yellow-500 shadow-lg shadow-cyber-yellow-500/10 border-t border-l border-r border-cyber-yellow-500/30'
                 : 'bg-midnight-900/50 text-gray-300 hover:bg-midnight-800 hover:text-cyber-yellow-400 border-t border-l border-r border-midnight-600'
             }`}
           >
             <Code2 className="h-4 w-4 md:h-5 md:w-5" />
-            Expertise
+            Approach
           </button>
           
           <button
