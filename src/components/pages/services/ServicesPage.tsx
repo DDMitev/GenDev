@@ -535,14 +535,26 @@ export default function ServicesPage() {
             {/* Service Tiers */}
             <div className="mt-10">
               <h3 className="mb-6 text-center text-xl font-bold text-white">Service Tiers</h3>
-              <div className="grid gap-6 md:grid-cols-3">
-                {segmentContent.tiers.map((tier: any, i: number) => (
+              <div className={`grid gap-6 ${segmentContent.tiers.length === 2 ? 'md:grid-cols-2 max-w-4xl mx-auto' : 'md:grid-cols-3'}`}>
+                {/* Sort tiers by price (lower to higher) when exactly 2 tiers are present */}
+                {(segmentContent.tiers.length === 2 ? 
+                  [...segmentContent.tiers].sort((a, b) => {
+                    // Extract numeric portion from price strings for comparison
+                    const getNumericPrice = (price: string) => {
+                      if (price.includes('From')) return 0; // 'From X' is considered the lowest
+                      const matches = price.match(/\d+/g);
+                      return matches ? parseInt(matches[0], 10) : 0;
+                    };
+                    return getNumericPrice(a.price) - getNumericPrice(b.price);
+                  }) : 
+                  segmentContent.tiers
+                ).map((tier: any, i: number) => (
                   <div 
                     key={i} 
-                    className={`flex flex-col rounded-lg border ${i === 1 ? 'border-cyber-yellow-500 bg-gradient-to-b from-midnight-700/90 to-midnight-900/90' : 'border-midnight-600 bg-gradient-to-b from-midnight-800/60 to-black/60'} p-6 transition-transform hover:transform hover:scale-[1.02]`}
+                    className={`flex flex-col rounded-lg border ${segmentContent.tiers.length === 3 && i === 1 ? 'border-cyber-yellow-500 bg-gradient-to-b from-midnight-700/90 to-midnight-900/90' : (segmentContent.tiers.length === 2 && i === 1 ? 'border-cyber-yellow-500 bg-gradient-to-b from-midnight-700/90 to-midnight-900/90' : 'border-midnight-600 bg-gradient-to-b from-midnight-800/60 to-black/60')} p-6 transition-transform hover:transform hover:scale-[1.02]`}
                   >
                     <div className="mb-4">
-                      <h4 className={`text-lg font-bold ${i === 1 ? 'text-cyber-yellow-500' : 'text-white'}`}>{tier.name}</h4>
+                      <h4 className={`text-lg font-bold ${(segmentContent.tiers.length === 3 && i === 1) || (segmentContent.tiers.length === 2 && i === 1) ? 'text-cyber-yellow-500' : 'text-white'}`}>{tier.name}</h4>
                       <div className="mt-2 flex items-baseline text-white">
                         <span className="text-2xl font-extrabold">{tier.price}</span>
                       </div>
@@ -553,7 +565,7 @@ export default function ServicesPage() {
                         {tier.features.map((feature: string, j: number) => (
                           <li key={j} className="flex items-start">
                             <div className="flex-shrink-0">
-                              <CheckCircle2 className={`h-5 w-5 ${i === 1 ? 'text-cyber-yellow-500' : 'text-cyber-yellow-500/70'}`} />
+                              <CheckCircle2 className={`h-5 w-5 ${(segmentContent.tiers.length === 3 && i === 1) || (segmentContent.tiers.length === 2 && i === 1) ? 'text-cyber-yellow-500' : 'text-cyber-yellow-500/70'}`} />
                             </div>
                             <span className="ml-2 text-sm text-gray-300">{feature}</span>
                           </li>
@@ -565,7 +577,7 @@ export default function ServicesPage() {
                         pathname: '/contact',
                         query: { service: activeService, tier: tier.name, segment: clientSegment }
                       }}
-                      className={`inline-flex items-center justify-center rounded-md ${i === 1 ? 'bg-cyber-yellow-500 text-black hover:bg-cyber-yellow-400' : 'bg-midnight-700 text-white hover:bg-midnight-600'} px-5 py-2.5 text-sm font-medium transition-all duration-300`}
+                      className={`inline-flex items-center justify-center rounded-md ${(segmentContent.tiers.length === 3 && i === 1) || (segmentContent.tiers.length === 2 && i === 1) ? 'bg-cyber-yellow-500 text-black hover:bg-cyber-yellow-400' : 'bg-midnight-700 text-white hover:bg-midnight-600'} px-5 py-2.5 text-sm font-medium transition-all duration-300`}
                     >
                       {tier.price === 'Contact Us' ? 'Request Quote' : 'Get Started'}
                       <ArrowRight className="ml-2 h-4 w-4" />
