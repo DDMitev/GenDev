@@ -6,7 +6,7 @@ import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { Filter, Code2, Mail, Search, ArrowRight } from 'lucide-react';
 
-type ProjectCategory = 'All' | 'Web Design' | 'Email Templates' | 'Technical Consultation';
+type ProjectCategory = 'All' | 'Web Design' | 'Email Templates';
 type Project = {
   id: string;
   title: string;
@@ -43,59 +43,42 @@ export default function PortfolioPage() {
     {
       id: 'newsletter-template',
       title: 'Monthly Newsletter Template',
-      description: 'Custom responsive newsletter template designed for high engagement and deliverability across all major email clients.',
+      description: 'Sample responsive newsletter template designed for high engagement and deliverability across all major email clients. Created as a showcase of our email development capabilities.',
       imageUrl: '/projects/email-template-1.jpg',
       client: 'GenDev Showcase',
       year: '2025',
       technologies: ['HTML Email', 'CSS', 'MJML', 'Responsive Design'],
-      challenge: 'Create a visually appealing newsletter template that renders correctly across all major email clients while maintaining brand consistency.',
+      challenge: 'Create a visually appealing newsletter template that renders correctly across all major email clients while maintaining brand consistency. This sample demonstrates our solution to common email rendering challenges.',
       solution: 'Designed a modern, modular email template with sections that can be easily customized. Used MJML to ensure compatibility and tested across 40+ email clients to guarantee consistent display.',
       category: 'Email Templates',
       featured: true
     },
     {
-      id: 'welcome-series',
-      title: 'E-commerce Welcome Series',
-      description: 'Series of five email templates designed to onboard new customers to an e-commerce platform with increasing conversion rates.',
-      imageUrl: '/projects/email-template-2.jpg',
-      technologies: ['HTML Email', 'CSS', 'Responsive Design', 'Email Automation'],
-      challenge: 'Design a welcome series that engages new subscribers and converts them into first-time customers.',
-      solution: 'Created a cohesive series of five emails with progressive messaging that guides subscribers toward their first purchase with increasing incentives.',
-      category: 'Email Templates'
-    },
-    {
-      id: 'consulting-project',
-      title: 'E-commerce Performance Optimization',
-      description: 'Technical consulting project focusing on improving site speed, UX, and conversion rates for an online store.',
-      imageUrl: '/projects/consulting.jpg',
-      client: 'Online Retailer',
-      year: '2024',
-      technologies: ['Performance Analysis', 'UX Audit', 'Accessibility', 'Technical SEO'],
-      challenge: 'The client\'s e-commerce site was experiencing slow load times and high bounce rates, especially on mobile devices.',
-      solution: 'Conducted a thorough technical audit identifying performance bottlenecks and UX issues. Provided a detailed implementation plan that resulted in 40% faster page loads and 15% higher conversion rates.',
-      category: 'Technical Consultation'
+      id: 'gendev-website',
+      title: 'GenDev Portfolio Website',
+      description: 'Our own portfolio website designed and developed as a showcase of our design philosophy and technical capabilities. A "By Us, For Us" project that demonstrates our approach to modern web development.',
+      imageUrl: '/projects/gendev-website.jpg', 
+      client: 'GenDev (By Us, For Us)',
+      year: '2025',
+      technologies: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Responsive Design'],
+      challenge: 'Creating a portfolio that effectively demonstrates our design capabilities while providing a seamless experience across all devices. We needed a platform that would showcase our services and establish our brand identity with a distinctive visual language.',
+      solution: 'We designed and developed a modern, responsive website with a distinctive black and yellow theme. The site features custom animations, interactive components, and a thoughtful information architecture that guides potential clients through our services and work examples. We focused on performance optimization and accessibility throughout the development process.',
+      liveSiteUrl: 'https://gendev.dev',
+      category: 'Web Design',
+      featured: false
     },
     {
       id: 'promotional-email',
-      title: 'Seasonal Campaign Templates',
-      description: 'Set of holiday-themed email templates designed for promotional campaigns with high visual impact.',
+      title: 'Promotional Discount Template',
+      description: 'High-impact email template designed for promotional campaigns with clear discount presentation and conversion-focused layout.',
       imageUrl: '/projects/email-template-3.jpg',
-      technologies: ['HTML Email', 'CSS', 'Responsive Design', 'Campaign Design'],
-      challenge: 'Create eye-catching seasonal promotional emails that stand out in crowded inboxes while maintaining brand consistency.',
-      solution: 'Designed a collection of templates with strong visual hierarchy, animation elements, and clear calls-to-action that can be repurposed for different seasonal campaigns.',
+      client: 'GenDev Showcase',
+      year: '2025',
+      technologies: ['HTML Email', 'CSS', 'Responsive Design', 'Campaign Design', 'A/B Testing', 'Interactive Elements'],
+      challenge: 'Create eye-catching promotional emails that stand out in crowded inboxes while driving conversions. This sample shows our solution to making promotional emails that convert.',
+      solution: 'Designed a template with strong visual hierarchy, animation elements, and clear calls-to-action that effectively showcases discount offers and promotions.',
+      liveSiteUrl: '/portfolio/promotional-email',
       category: 'Email Templates'
-    },
-    {
-      id: 'design-system',
-      title: 'Corporate Design System',
-      description: 'Development of a comprehensive design system for consistent branding across web and email assets.',
-      imageUrl: '/projects/design-system.jpg',
-      client: 'Financial Services Firm',
-      year: '2024',
-      technologies: ['Design Systems', 'Component Library', 'Documentation', 'Figma'],
-      challenge: 'The client needed a unified design language across their digital presence while allowing for flexible implementation.',
-      solution: 'Created a comprehensive design system including typography, color palettes, component libraries, and implementation guidelines for both web and email applications.',
-      category: ['Web Design', 'Technical Consultation']
     }
   ];
 
@@ -161,18 +144,6 @@ export default function PortfolioPage() {
             >
               <Mail className="h-4 w-4" />
               Email Templates
-            </button>
-            
-            <button
-              onClick={() => setActiveFilter('Technical Consultation')}
-              className={`flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
-                activeFilter === 'Technical Consultation'
-                  ? 'bg-cyber-yellow-500 text-black'
-                  : 'bg-midnight-800 text-white hover:bg-midnight-700'
-              }`}
-            >
-              <Search className="h-4 w-4" />
-              Technical Consultation
             </button>
           </div>
           <p className="text-center text-sm text-gray-400">

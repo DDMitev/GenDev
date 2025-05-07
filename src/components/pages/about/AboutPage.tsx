@@ -121,7 +121,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <h3 className="mb-2 text-center text-xl font-semibold text-white">Deyan Mitev</h3>
-                  <p className="text-center text-sm font-medium text-gray-300">Design & Technical Lead</p>
+                  <p className="text-center text-sm font-medium text-gray-300">Technical Lead, GenDev</p>
                   
                   <div className="mt-4 space-y-2">
                     <div className="flex items-center gap-2 text-sm text-gray-300">

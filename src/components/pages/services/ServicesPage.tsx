@@ -11,10 +11,14 @@ import {
   ChevronRight, 
   ArrowRight,
   CheckCircle2,
-  Mail
+  Mail,
+  Gauge,
+  ShieldCheck,
+  Accessibility,
+  LineChart
 } from 'lucide-react';
 
-type ServiceCategory = 'web' | 'email' | 'consulting';
+type ServiceCategory = 'web' | 'email' | 'consulting' | 'tao';
 
 export default function ServicesPage() {
   const [activeService, setActiveService] = useState<ServiceCategory>('web');
@@ -25,17 +29,17 @@ export default function ServicesPage() {
       id: 'web',
       title: 'Web Design & Development',
       icon: <Code2 className="h-6 w-6 text-cyber-yellow-500" />,
-      description: 'Professional, responsive websites designed with modern aesthetics and optimized for user experience and conversion.',
+      description: 'Full-stack web solutions with modern frontend and Firebase backend. From simple websites to complex web applications built with performance and scalability in mind.',
       details: [
-        'New website design and development',
-        'Website redesign & modernization',
-        'Responsive design for all devices',
-        'UI/UX design with conversion focus',
-        'Modern frameworks: React, Next.js, Tailwind CSS',
-        'Performance optimization and accessibility'
+        'Custom frontend development with Next.js & React',
+        'Firebase backend implementation for scalable apps',
+        'Responsive design optimized for all devices',
+        'UI/UX design with conversion-focused approach',
+        'Full-stack integration with serverless architecture',
+        'Performance optimization and accessibility compliance'
       ],
-      technologies: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Responsive Design', 'UI/UX Design'],
-      pricing: 'Available in Basic (€800-1500), Standard (€1500-3000), and Premium (€3000+) tiers',
+      technologies: ['React', 'Next.js', 'Firebase', 'Tailwind CSS', 'TypeScript', 'Serverless Functions', 'Cloud Database'],
+      pricing: 'Tiered packages: Basic (€5,000-8,000), Standard (€10,000-20,000), and Premium (€25,000+) based on complexity and feature requirements',
       cta: 'Discuss Your Web Project'
     },
     {
@@ -71,6 +75,23 @@ export default function ServicesPage() {
       technologies: ['Design Systems', 'Accessibility Standards', 'Performance Optimization', 'Technical SEO', 'Development Best Practices'],
       pricing: '€50-80/hr for consulting services, packages available',
       cta: 'Book a Consultation'
+    },
+    {
+      id: 'tao',
+      title: 'Technical Audit & Optimization',
+      icon: <Gauge className="h-6 w-6 text-cyber-yellow-500" />,
+      description: 'Comprehensive technical analysis and optimization of your website to improve performance, security, accessibility, and search engine visibility – ensuring your site delivers the best possible user experience and business outcomes.',
+      details: [
+        'Performance optimization (Core Web Vitals, load time)',
+        'Security assessment and vulnerability remediation',
+        'Accessibility compliance with WCAG 2.1/2.2 standards',
+        'Technical SEO audit and implementation roadmap',
+        'Code quality analysis and technical debt reduction',
+        'Detailed reports with prioritized recommendations'
+      ],
+      technologies: ['Core Web Vitals', 'Google Lighthouse', 'OWASP Security Standards', 'WCAG 2.1/2.2', 'Schema Markup', 'Technical SEO', 'SonarQube'],
+      pricing: 'Tiered packages: Basic (€2,000-3,500), Standard (€4,000-7,000), and Premium (€8,000-15,000) based on site complexity and needs',
+      cta: 'Request an Audit'
     }
   ];
 
@@ -112,7 +133,7 @@ export default function ServicesPage() {
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-3xl md:text-4xl font-bold text-white">Our Services</h1>
           <p className="mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
-            We offer specialized web development and data management services to help businesses improve their digital presence and streamline operations.
+            We offer comprehensive web design, development, and optimization services to help businesses create impactful digital experiences that drive results.
           </p>
         </div>
       </ScrollReveal>

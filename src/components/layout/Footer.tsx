@@ -39,7 +39,7 @@ export default function Footer() {
                   <Link href="/services" className="hover:text-cyber-yellow-500">Technical Consultation</Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-cyber-yellow-500">UI/UX Design</Link>
+                  <Link href="/services" className="hover:text-cyber-yellow-500">Technical Audit & Optimization</Link>
                 </li>
               </ul>
             </div>
