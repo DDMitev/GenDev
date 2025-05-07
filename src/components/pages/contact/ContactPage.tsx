@@ -83,37 +83,6 @@ export default function ContactPage() {
           <ScrollReveal direction="right">
             <div className="space-y-8">
               <ContactInfo />
-              
-              {/* Consultation Booking */}
-              <div className="rounded-lg bg-gradient-to-br from-midnight-800/90 to-midnight-700/90 p-6 shadow-xl backdrop-blur-sm border border-midnight-600">
-                <h3 className="mb-4 text-xl font-bold text-white">Book a Design Consultation</h3>
-                <p className="mb-4 text-gray-300">
-                  Schedule a free 30-minute consultation with our design team to discuss your project needs and explore how we can help.
-                </p>
-                <a 
-                  href="https://calendly.com/gendev-design/consultation" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-md bg-cyber-yellow-500 px-4 py-2 text-black font-medium transition-all hover:bg-cyber-yellow-400 hover:transform hover:-translate-y-1 hover:shadow-lg"
-                >
-                  Schedule Now
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-5 w-5" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                  </svg>
-                </a>
-              </div>
             </div>
           </ScrollReveal>
         </div>

@@ -58,8 +58,8 @@ export default function ContactInfo() {
           </div>
           <div>
             <h3 className="text-base md:text-lg font-medium text-white">Phone</h3>
-            <a href="tel:+359888123456" className="text-gray-300 hover:text-cyber-yellow-500 transition-colors">
-              +359 88 812 3456
+            <a href="tel:+359888270530" className="text-gray-300 hover:text-cyber-yellow-500 transition-colors">
+              +359 88 827 0530
             </a>
             <p className="text-xs text-gray-400 mt-1">For urgent inquiries only</p>
           </div>

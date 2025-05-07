@@ -42,15 +42,25 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // In a real implementation, you would send the form data to your backend or a form service
-    // This is a simulation for demonstration purposes
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Make a real API call to our contact endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
       
       setSubmitStatus({
         type: 'success',
-        message: 'Thank you for your message! I\'ll get back to you within 1 business day.'
+        message: data.message || 'Thank you for your message! We\'ll get back to you within 1 business day.'
       });
       
       // Reset form after successful submission
@@ -64,9 +74,10 @@ export default function ContactForm() {
         message: ''
       });
     } catch (error) {
+      console.error('Contact form submission error:', error);
       setSubmitStatus({
         type: 'error',
-        message: 'Something went wrong. Please try again or contact me directly via email.'
+        message: error instanceof Error ? error.message : 'Something went wrong. Please try again or contact us directly via email.'
       });
     } finally {
       setIsSubmitting(false);
